@@ -1,0 +1,1690 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+FEFS
+</name>
+</assembly>
+<members>
+<member name="F:FEFS.Comm.MES_HEAD">
+	<summary>
+ 通讯报文头
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Comm.MES_TAIL">
+	<summary>
+ 通讯报文尾
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Comm.MES_LOCAL">
+	<summary>
+ 本机地址
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Comm.MES_CHAXUN">
+	<summary>
+ 报警器参数查询功能码
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Comm.MES_CONTR">
+	<summary>
+ 报警器状态控制功能码
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Comm.CommChaxun(System.Byte,System.Byte[]@)">
+	<summary>
+ 报警器状态查询报文-生成
+ </summary>
+	<param name="addr">报警灯地址-输入</param>
+	<param name="sendData">通讯报文-返回</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Set_Tcq.refresh_table">
+	<summary>
+ 刷新表格
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Set_Tcq.Button1_Click(System.Object,System.EventArgs)">
+	<summary>
+	</summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Set_Tcq.DataGridView1_DoubleClick(System.Object,System.EventArgs)">
+	<summary>
+ 双击项目栏
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Set_Tcq.Type_I_T">
+	<summary>
+ 根据表类型使能电流和温度框
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Set_Tcq.Button2_Click(System.Object,System.EventArgs)">
+	<summary>
+ 修改按钮按下，首先判断用户输入值是否合法
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Time_Message_Fresh_Count">
+	<summary>
+ 界面时间和信息窗体显示刷新间隔（100ms计时）
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Mute_Flag">
+	<summary>
+ 系统关闭报警 标志 1=关闭 0=打开。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Timer1_60ms_Ct">
+	<summary>
+ 定时器1,60ms定时计数。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Timer1_Tcq_Per">
+	<summary>
+ 定时器1，定时周期个数
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.timer3_sj">
+	<summary>
+ timer3定时器250ms 时刻标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.timer3_kind">
+	<summary>
+ timer3功能类型。1：主电源工作灯闪烁
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.timer3_ct">
+	<summary>
+ timer3定时器250ms定时计数
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Atx_Power_Comm_Count">
+	<summary>
+ 系统累计计时，每2s和工控机电源通讯连接一次。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Wait_ATX_ReCall">
+	<summary>
+  标志等待工控机电源通讯上传。。。。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Bo_But_Set_Tree_Opne">
+	<summary>
+  参数设置按键展开和折叠标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Bo_But_Data_Tree_Open">
+	<summary>
+ 实时数据按钮展开和折叠标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Us_But_Down_Size">
+	<summary>
+ 参数设置按键展开后，其他按键下移此次
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Comm_Get_First_Byte">
+	<summary>
+ 标志进入接收中断后，要接收到通讯帧的第一个数据。。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Comm_Get_Ar">
+	<summary>
+ 接收探测器发过来的数据，长度20
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Guzhang_Refresh_Lable">
+	<summary>
+ 故障报警显示框刷新标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Jiankong_Refresh_Lable">
+	<summary>
+ 监控报警显示框刷新标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Main_Need_Refresh_Form1">
+	<summary>
+ 当有报警和故障产生时，main 需要form1 及时刷新
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Cur_Form">
+	<summary>
+ 当前显示的子窗体的编号
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FEFS.Main.Cur_Form_Enum">
+	<summary>
+ 当前子窗体标志枚举类型
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Man_Find_GZ_Index">
+	<summary>
+  手动查询故障信息索引
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Man_Find_BJ_Index">
+	<summary>
+  手动查询报警信息索引
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Wait_Recall_Self_Check">
+	<summary>
+ 自检模块，标志等待探测器回响自检命令
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Self_Check_Loop_Index">
+	<summary>
+ 自检模块Loop_Index
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Self_Check_Tcq">
+	<summary>
+ 需要自检的探测器--地址数组
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Self_Check_Result">
+	<summary>
+ 需要自检的探测器--自检结果数组
+ 自检完成=true   自检失败=false
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Self_Check_Retry">
+	<summary>
+ 需要自检的探测器--自检失败重复累计
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.TX_Send_Work">
+	<summary>
+ true=需要发送数据给图形显示装置。
+ 主程序告知进程，需要发送数
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.TX_Send_OK">
+	<summary>
+ true=进程已经将信息发送给图形显示装置。
+ 
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.Wait_Tx_Recall">
+	<summary>
+ 标志等待图显回响 。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.TX_TX_Retry">
+	<summary>
+ 重发次数。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.TX_Send_Obj">
+	<summary>
+  待发送的信息对象
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.TX_Array">
+	<summary>
+ 待发送信息集合
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.TX_Info_Id">
+	<summary>
+ 图显序列号
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.TX_Comm_Ct">
+	<summary>
+ 图显通讯计时，每两秒发送一次
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Main.TX_RST">
+	<summary>
+ 复位图显标志
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.MDIParent2_Load(System.Object,System.EventArgs)">
+	<summary>
+ 软件主窗体，初始化函数。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Main_UI_Init">
+	<summary>
+ 窗体显示界面布局初始化函数
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Button4_Click(System.Object,System.EventArgs)">
+	<summary>
+ 系统退出按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Close_PC">
+	<summary>
+ 关机操作
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_View_Tree_Open">
+	<summary>
+ 实时数据显示按钮展开时，其下方的按钮下移，
+ 如果下方参数设置按钮为展开状态，则先收缩展开。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Set_Tree_Close">
+	<summary>
+  收缩已经展开的参数设置按钮树,并标志展开状态
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Set_Tree_Open">
+	<summary>
+ 展开处于关闭状态的参数设置按钮树
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Data_Tree_Close">
+	<summary>
+ 收缩已经展开的实时数据按钮树，并标志其为收缩状态
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Data_Tree_Open">
+	<summary>
+ 展开已经处于关闭状态的实时数据
+ 按钮树
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Comm_Tcq_Usart_Init">
+	<summary>
+ 探测器通讯口初始化
+ </summary>
+	<returns> true=1</returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Atx_Power_Usart_Init">
+	<summary>
+  工控主机通讯口初始化
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Cal_IL(System.Byte,System.Byte)">
+	<summary>
+ 电流值计算
+ </summary>
+	<param name="High_Byte"></param>
+	<param name="Low_byte"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Cal_T(System.Byte,System.Byte)">
+	<summary>
+ 温度值计算
+ </summary>
+	<param name="High_Byte"></param>
+	<param name="Low_byte"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Refresh_Guzhang_Message">
+	<summary>
+ 刷新故障显示框,故障的 DataGridView1
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Get_Next_GZ_Info(System.UInt16)">
+	<summary>
+ 手动查询时,获取上一条或者下一条故障信息
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_GZ_Find_Next_Click(System.Object,System.EventArgs)">
+	<summary>
+ 故障手动查询，向后一条信息
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_GZ_Find_Pre_Click(System.Object,System.EventArgs)">
+	<summary>
+ 故障手动查询，前一条信息
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Refresh_Jiankong_Message">
+	<summary>
+ 刷新监控报警显示框,报警 DataGridView2
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Get_Next_BJ_Info(System.UInt16)">
+	<summary>
+ 手动查询时,获取上一条或者下一条报警信息
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_BJ_Find_Pre_Click(System.Object,System.EventArgs)">
+	<summary>
+ 报警手动查询，向后一条信息
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_BJ_Find_Next_Click(System.Object,System.EventArgs)">
+	<summary>
+ 报警手动查询，前一条信息
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Timer1_Tick(System.Object,System.EventArgs)">
+	<summary>
+ 定时器固定定时时间：60ms
+ Timer1定时终端函数，函数功能如下
+ 1:完成对上一次探测器回响数据的接收处理
+ 2:发送下一个探测器的查询(或设置)通讯指令
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.ATX_Power_Comm">
+	<summary>
+ 与ATX-200,通讯实物处理。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Sys_Tcq_Comm">
+	<summary>
+ 系统与探测器的通讯事物处理。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Sys_Tcq_SelfCheck_Comm(System.Byte)">
+	<summary>
+ 系统自检时，发送自检命令给探测器。
+ order=1 表示复位
+ order=2 表示自检
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Get_Recall_Input(System.UInt16,System.IO.Ports.SerialPort@)">
+	<summary>
+ 接收探测器的回响信号。如果地址正确，回响正确，则返回true
+ </summary>
+	<param name="addr"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Get_ATX_State_Dongyang">
+	<summary>
+ 获取系统工作电源状态 for 东阳。。。
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Timer2_Tick(System.Object,System.EventArgs)">
+	<summary>
+ Timer2:100ms定时器。
+ work1:扬声器发声控制
+ work2:故障显示框刷新。
+ work3:工控机电源通讯
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.TX_Usart_Init">
+	<summary>
+ 打开图形显示装置的串口
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.SGKZ">
+	<summary>
+  声光控制线程，定时睡眠100ms.
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.TX_Send">
+	<summary>
+  发送通讯参数给图显 
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.XunWen">
+	<summary>
+ 主机发送询问指令给图显 
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.RST_TX_Order">
+	<summary>
+ 复位图形显示装置
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Send_ChaXun_Order(System.UInt16,System.IO.Ports.SerialPort@)">
+	<summary>
+ 主机向下发送探测器查询指令
+ </summary>
+	<param name="tcq_addr">探测器的地址</param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Send_Self_Check_Order(System.UInt16,System.IO.Ports.SerialPort@)">
+	<summary>
+ 主机向下发送探测器自检指令
+ </summary>
+	<param name="tcq_addr">探测器的地址</param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Send_Mute_Order(System.UInt16,System.IO.Ports.SerialPort@)">
+	<summary>
+ 主机向下发送探测器guanbi  mingling
+ </summary>
+	<param name="tcq_addr">探测器的地址</param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Send_Rest_Order(System.UInt16,System.IO.Ports.SerialPort@)">
+	<summary>
+ 主机向下发送探测器自检指令
+ </summary>
+	<param name="tcq_addr">探测器的地址</param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Sys_Res_Sub">
+	<summary>
+ 系统复位发送指令
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Get_Input_Data">
+	<summary>
+ 一次读取完串口里面所有的数据，然后判断校验数据。
+ 数据接收采用滤除判断正确报文头和报文字节数，同时按规则校验。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Get_Input_Data2(System.IO.Ports.SerialPort@)">
+	<summary>
+ 一次读取完串口里面所有的数据，然后判断校验数据。
+ 数据接收采用滤除判断正确报文头和报文字节数，同时按规则校验。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Wait_Tcq_ReCall">
+	<summary>
+ 主机已经发送出查询信息，等待探测器回响，等待时间20000.个计数值。。。。。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Wait_Tcq_Pra_ReCall(System.IO.Ports.SerialPort@)">
+	<summary>
+ 主机下发设置参数到探测器，等待探测器收到数据后回响。FD+addrh+addrl
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Zll_Work">
+	<summary>
+ 声光提示任务，报警，故障指示灯亮。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.T1_Alarm_Work">
+	<summary>
+ 温度1报警处理
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.T2_Alarm_Work">
+	<summary>
+ 温度2报警处理
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.IL_Alarm_Wrok">
+	<summary>
+ 漏电流报警功能处理
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Jiankong_Alarm_Work">
+	<summary>
+ 探测器的监控报警事物处理(IL + T1 + T2)
+ 判断记录IL，T1，T2报警，并标记弹出报警
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.IL_Fault_Work">
+	<summary>
+ 剩余电流互感器故障报警处理：弹出故障报警or恢复正常
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.T1_Fault_Work">
+	<summary>
+ 温度1故障报警处理： 弹出报警 or 恢复正常
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.T2_Fault_Work">
+	<summary>
+ 温度2故障报警处理: 弹出报警 or 恢复正常
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Guzhang_Alarm_Work">
+	<summary>
+ 探测器的故障报警事物处理IL + T1 + T2。 弹出故障 or 恢复正常
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Comm_State_Work">
+	<summary>
+ 探测器的通讯状态事物处理
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Get_ATX_Comm_Info">
+	<summary>
+ 接收工控机的回响的数据，并判断主备电源状态同时控制主备电源指示灯
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_His_Alarm_Click(System.Object,System.EventArgs)">
+	<summary>
+ 按钮：查看历史报警
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Form_Enable_Work">
+	<summary>
+  将当前的窗体button使能
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Sys_Pra_Set_Click(System.Object,System.EventArgs)">
+	<summary>
+ 系统参数设置按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Tcq_Pra_Set_Click(System.Object,System.EventArgs)">
+	<summary>
+ 探测器参数设置按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Sys_Tcq_Net_Click(System.Object,System.EventArgs)">
+	<summary>
+ 探测器布线网络按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Sys_SelfCheck_Click(System.Object,System.EventArgs)">
+	<summary>
+ 系统自检按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Sys_Reset_Click(System.Object,System.EventArgs)">
+	<summary>
+ 系统复位按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Data_View_Click(System.Object,System.EventArgs)">
+	<summary>
+  数据显示按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Table_View_Click(System.Object,System.EventArgs)">
+	<summary>
+ 数据图表显示按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Map_View_Click(System.Object,System.EventArgs)">
+	<summary>
+ 报警信息查看窗体-启动按钮（原平面图显示窗体启动按钮）
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.But_Fault_View_Click(System.Object,System.EventArgs)">
+	<summary>
+  故障信息显示查询窗体
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Button3_Click(System.Object,System.EventArgs)">
+	<summary>
+ 消音按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Baojing_Speaker_Test">
+	<summary>
+ 监控报警声响测试
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Guzhang_Speaker_Test">
+	<summary>
+ 故障报警声响测试
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Hide_All_Controls">
+	<summary>
+ 主窗体隐藏自己的所有控件
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Button13_Click(System.Object,System.EventArgs)">
+	<summary>
+ 全屏按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Button14_Click(System.Object,System.EventArgs)">
+	<summary>
+ 缩小按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Close_Guzhang_Alarm">
+	<summary>
+ 故障恢复后清除故障信息框信息同时关闭故障声音。
+ 实现逻辑：若当前没有处于监控报警状态,那么当有故障报警恢复之后，
+ 就进行消音操作，同时判断，故障是否全部没有，则关闭故障指示灯
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Alarm_Guzhang_Form_show">
+	<summary>
+  用户点击 报警和故障信息总条数按钮是，调用的显示窗体过程。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Sys_Soft_Reset">
+	<summary>
+ 软件软复位。 依据国标要求，软件复位后在20ms内，仍存在的故障和报警能建立。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Tcq_Self_Check">
+	<summary>
+ 探测器自检程序，配套自检模块
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Label2_DoubleClick(System.Object,System.EventArgs)">
+	<summary>
+ 恢复探测器的报警操作。。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Label_Time_DoubleClick(System.Object,System.EventArgs)">
+	<summary>
+ 双击时间标签，可以发送屏蔽 到所有探测器，屏蔽所有报警。同时主机也不再进行监控和故障报警。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Main.Add_Record_To_His_Alarm1(System.UInt32,System.Byte)">
+	<summary>
+  向数据库His_Alarm表中添加一条报警记录。
+ </summary>
+	<param name="tcq_id">发生报警的探测器的id属性</param>
+	<param name="alarm_kind">报警类型:0=IL报警,1=T1报警,2=T2报警</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Susi_IO_Init">
+	<summary>
+ 主机SUSI口初始化，同时标记ATX200_Usart_State。返回 true=成功  false=失败
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Set_Speaker">
+	<summary>
+   配置扬声器
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Set_All_IO_Out_Dir">
+	<summary>
+  设置7个位输出方向，一个位输入方向。。
+  同时关闭所有的输出。
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.All_Out_Off">
+	<summary>
+  所有的输出清零，关闭指示灯，关闭继电器输出，关闭喇叭
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.All_Out_On">
+	<summary>
+  所有的输出使能
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Speaker_On">
+	<summary>
+  喇叭声输出
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Speaker_Off">
+	<summary>
+  喇叭声关闭
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Get_Res_Singal">
+	<summary>
+ 获取程序复位信号，返回值int
+ 0:出错
+ 1：不复位信号
+ 2：复位信号
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Main_Power_Lamp_On">
+	<summary>
+  主电源灯泡亮
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Main_Power_Lamp_Off">
+	<summary>
+  主电源灯泡灭
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Back_Power_Lamp_On">
+	<summary>
+  备电源灯泡亮
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Back_Power_Lamp_Off">
+	<summary>
+  备电源灯泡灭
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Baojing_Lamp_On">
+	<summary>
+  报警灯泡亮
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Baojing_Lamp_Off">
+	<summary>
+  报警灯泡灭
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Guzhang_Lamp_On">
+	<summary>
+  故障灯泡亮
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.Guzhang_Lamp_Off">
+	<summary>
+  故障灯泡灭
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.JDQ_On">
+	<summary>
+  继电器输出
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.SUSI.JDQ_Off">
+	<summary>
+  继电器不输出。
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Alarm.Refresh_Table">
+	<summary>
+ 刷新数据表
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Alarm.Timer1_Tick(System.Object,System.EventArgs)">
+	<summary>
+ 如果此界面处于当前显示的界面的，那么每隔5秒钟，则自动刷新是否有报警信息需要确认。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.RenZhen">
+	<summary>
+ true=送检认证； false=普通生产
+ 在软件界面，不能说分认证和非认证软件，
+ 委婉的说为是否兼容旧版。如果选择不兼容，表示此版软件是认证的软。
+ 如果选择兼容表示此软件是普通生产的时的软。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.DongYang">
+	<summary>
+ true=系统电源为老的IGB，表示此软件适用于东阳的非标的四台监控主机。
+ false=系统电源为ATX-200
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Reset_Form_Show">
+	<summary>
+ 标志复位验证窗体已经显示
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Sys_name">
+	<summary>
+ 系统软件名称
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Sys_node_count">
+	<summary>
+ 系统中探测器的节点数量
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.SelfCheck_Use_LampAndSpeaker">
+	<summary>
+ 标志自检模块暂时控制声光器件
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.SelfCheck_Use_Tcq_Comm">
+	<summary>
+ 自检时和探测器实时通讯
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Sys_user_level">
+	<summary>
+ 0=普用户，
+ 1=操作员，
+ 2=管理员，
+ 3=超级用户
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Sys_Lock">
+	<summary>
+ 系统锁定
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.ba_v">
+	<summary>
+ 电池电压
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Pra_Send_Array">
+	<summary>
+ 主机下发探测器参数。。。。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Zll">
+	<summary>
+ 总的故障类型：无故障=0   监控报警=1  故障报警=2
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Sys_Mute">
+	<summary>
+ 系统消音标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Sys_Who_Supply_Power">
+	<summary>
+ 系统电源  1=主电源  2=备电源
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Main_Power_State">
+	<summary>
+ 主电源状态：正常=0x31=1   不正常=0x30=0
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Back_Power_State">
+	<summary>
+ 备电源状态： 正常=0x30=0 电压低=0x31=1  短路=0x32=2  开路=0x33=3
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.ATX_200_Comm_Fail_Count">
+	<summary> 
+ 工控机电源通讯失败累计次数。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Sys_Self_Check_Ready">
+	<summary>
+  系统若上电后通讯连接过所有探测器，
+  则可以进行自检，否则就等。。。。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Guzhang_Array">
+	<summary>
+ 故障信息的集合素组
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Guzhang_Alarm_Come">
+	<summary>
+ 标志有故障报警来，提示程序声光报警
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Guzhang_Lamp_Sta">
+	<summary>
+ true=故障灯常亮 false=故障灯常灭。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Baojing_Lamp_Sta">
+	<summary>
+ true=报警灯常亮 false=报警灯常灭。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Baojing_Lamp_Zj_Use">
+	<summary>
+ true:自检占用此指示灯
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Guzhang_Lamp_Zj_Use">
+	<summary>
+ true:故障占用此指示灯
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Speaker_Zj_Baojing">
+	<summary>
+ 自检使用报警
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Baojing_Array">
+	<summary>
+ 报警信息的集合素组
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Baojing_Alarm_Come">
+	<summary>
+ 标志有监控报警来，提示程序声光报警
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Fesn">
+	<summary>
+  系统电气火灾探测器对象数组
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Login_Mes">
+	<summary>
+ 用户登录时提醒信息，会现在在LoginForm窗体
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Login_Need_Level">
+	<summary>
+ 需要用户以何种身份登录
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Comm_Loop_Id">
+	<summary>
+ 系统定时巡查探测器的当前编号
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.SUSI_State">
+	<summary>
+ 主机GPIO口状态 true=正常 false=异常
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.TCQ_Usart_State">
+	<summary>
+ 主机连接探测器的RS232串口通讯状态 true=正常 false=异常
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.ATX200_Usart_State">
+	<summary>
+ 主机连接ATX200工控机电源的RS232串口通讯状态 true=正常 false=异常
+ </summary>
+	<remarks></remarks>s
+
+</member><member name="F:FEFS.HX_Mod.T1_alarm_on">
+	<summary>
+ 温度1报警开启标志   on=开启报警  false=关闭报警功能，add time  2017年12月25日11:15:51
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.T2_alarm_on">
+	<summary>
+ 温度2报警开启标志   on=开启报警  false=关闭报警功能，add time  2017年12月25日11:15:51
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.IL_alarm_on">
+	<summary>
+ 漏电流报警开启标志   on=开启报警  false=关闭报警功能，add time  2017年12月25日11:15:51
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.ILT12_fault_on">
+	<summary>
+ 所有传感器开路,短路后故障报警开启标志   on=开启报警  false=关闭报警功能，add time  2017年12月25日11:15:51
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Speaker_work_on">
+	<summary>
+   故障和报警时 扬声器开启标志   on=开启  false=关闭，add time  2017年12月25日11:15:51
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Send_Pra_Net">
+	<summary>
+ 参数发送时的net
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.HX_Mod.Comm_Debug_Sta">
+	<summary>
+ 通讯调试状态。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Sys_Init">
+	<summary>
+ 系统初始化(1:读取数据信息。 2:初始化系统核心变量)
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Sys_Main_Info_file_Init">
+	<summary>
+  系统基础信息初始化，在加载读取数据库失败后，尝试加载sys_main_info 数据文件。
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Sys_Base_Info_Init">
+	<summary>
+ 系统基础信息初始化，读取数据表sys_main_info 
+ 1:系统名称  
+ 2:探测器数量         
+ 3:探测器通讯口
+ 4:工控机电源通讯口     
+ 5:信息翻页时间  
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Sys_User_Init">
+	<summary>
+  系统用户初始化，读取数据库中user_info表，初始化用户对象数组 Fefs_Users
+  如果数据中表信息不正确，则返回false
+  
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.tcq_map_Init">
+	<summary>
+ 系统初始化时从数据库加载探测器地图信息
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Sys_Tcq_info_Init">
+	<summary>
+ 从Mysql数据库加载探测器表内的信息，同时初始化探测器对象数组
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Sys_Tcq_Info_File_Init">
+	<summary>
+ 从文本文件加载探测器表内的信息，同时初始化探测器对象数组
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Set_Tcq_Default_Info_Init">
+	<summary>
+ Msyql 数据库与文本文件均失效后，直接固化探测器参数
+ 固化参数：16个探测器，2个温度，电流报警500，温度1-2 报警100
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Sys_Base_Default_Info_Init">
+	<summary>  
+ Msyql 数据库和备份文本文件sys_main_info 均失效后，
+ 直接加载固化参数，如下
+ 认证模式，不支持东阳，一个节点，2个温度
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Add_tcq_into_table">
+	<summary>
+ 向数据库中插入1023条探测器数据。。。。。。
+ 101-1023
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Sql_Exe(System.String)">
+	<summary>
+  执行一条SQL语句，并返还是否成功
+ </summary>
+	<param name="sql_str"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Sql_Exe1(System.String,System.String@)">
+	<summary>
+  执行一条SQL语句，并返还是否成功
+ </summary>
+	<param name="sql_str"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Add_Record_To_His_Alarm(System.UInt32,System.Byte)">
+	<summary>
+  向数据库His_Alarm表中添加一条报警记录。
+ </summary>
+	<param name="tcq_id">发生报警的探测器的id属性</param>
+	<param name="alarm_kind">报警类型:0=IL报警,1=T1报警,2=T2报警</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Find_Sql_Exe(System.String)">
+	<summary>
+  查询sql语句()，返回数据集的行数
+ </summary>
+	<param name="sql_str"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.User_Login(System.String,System.String)">
+	<summary>
+ 用户登录检查用户名和密码是否正确。
+ </summary>
+	<param name="name">用户名</param>
+	<param name="pass">密码</param>
+	<returns>用户权限（1,2,3）,返回0表示用户名或密码错误</returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Tcq_Reset_BJ_GZ">
+	<summary>
+ 探测器复位后，清楚其报警和故障状态。
+ 复位集合：Tcq_Self_Check_Array
+ 报警集合：  Guzhang_Array
+ 故障集合： Guzhang_Array
+ 其它Fesn() 对象属性。。
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Save_GLY_Pass_Into_File(System.String)">
+	<summary>
+ 将管理员的密码保存到备份文件中去。
+ </summary>
+	<param name="pass"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.HX_Mod.Save_CZY_Pass_Into_File(System.String)">
+	<summary>
+ 将管理员的密码保存到备份文件中去。
+ </summary>
+	<param name="pass"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Map_View.Button12_Click(System.Object,System.EventArgs)">
+	<summary>
+ 放置图标按钮。。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="T:FEFS.Form_Map_View">
+	<summary>
+ 程序编写笔记：
+ 1：分解出来探测器节点的图层，离散出探测器节点集合。
+ 2：探测器符号颜色定义如下
+     1：绿色长亮---正常。
+     2：黄色长亮---通讯异常，黄色闪烁--其他故障。
+     3：红色闪烁---监控报警。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Form1.But_Pages">
+	<summary>
+ 定义20个页面选择按钮。0-19
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Form1.Page_Tcq_Ct">
+	<summary>
+  设置每个页面要显示的数量。。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Form1.Tcq_Id_SS">
+	<summary>
+ 探测器实时 的小窗口的值。。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Form1.Pages_Total">
+	<summary>
+ 页面显示选择按钮的总数量
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Form1.Cur_Page">
+	<summary>
+ 当前页面的Page
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form1.Form1_UI_Init">
+	<summary>
+  Form1窗体界面设计函数。
+  动态依据每页要显示的探测器数量，和探测器总数量，来确定要显示的页数。
+  如果只需要一页显示，则不显示页面选择框。单页最多显示32个节点。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form1.more_page_init">
+	<summary>
+ 当节点数量大于64的时间，设置分页显示。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form1.Timer1_Tick(System.Object,System.EventArgs)">
+	<summary>
+  定时器功能
+ 1：定时翻页
+ 2：定时刷新  没间隔3秒
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form1.Refresh_DataGrid_View">
+	<summary>
+ 刷新数据表格
+ 依据当前的Cur_Page 和 Sys_Node_Count 值来刷新显示数据
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form1.Page_Button_Click(System.Byte)">
+	<summary>
+ 页面选择按钮
+ </summary>
+	<param name="PageNum"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form1.DataGridView1_DoubleClick(System.Object,System.EventArgs)">
+	<summary>
+ 双击对应栏，显示实时的值。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form1.Button3_Click(System.Object,System.EventArgs)">
+	<summary>
+ 此复位按钮，仅针对于，处于报警状态的和通讯正常的 。。。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form1.DataGridView2_DoubleClick(System.Object,System.EventArgs)">
+	<summary>
+  列表框2 ，双击显示。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="T:FEFS.Form1">
+	<summary>
+ 本窗体为实时的数据显示，采用列表分页显示。
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FEFS.Page_Button">
+	<summary>
+ 自定义"页面按钮",继承于"Button"类，
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.LoginForm1.OK_Click(System.Object,System.EventArgs)">
+	<summary>
+	</summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.id">
+	<summary>
+ 探测器编号，同时也是探测器的物理地址, 唯一，不可重复,同数据库中的id
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.enable">
+	<summary>
+ 探测器是否启用
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.id_str">
+	<summary>
+ 探测器的编号,意义等于ID，字符串显示 ex:【0001】
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.alarm">
+	<summary>
+ 报警状态位标志。。。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.guzhang">
+	<summary>
+ 硬件故障标志位
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.il_alarm_pop">
+	<summary>
+ 弹出电流报警标志。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.t1_alarm_pop">
+	<summary>
+  弹出T1报警标志。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.t2_alarm_pop">
+	<summary>
+ 弹出T2报警标志。。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.il_error_pop">
+	<summary>
+ 剩余电流传感器开路或短路故障弹出标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.t1_error_pop">
+	<summary>
+ T1传感器开路短路故障弹出标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.t2_error_pop">
+	<summary>
+ T2传感器开路短路故障弹出标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.type">
+	<summary>
+ 探测器的表类型：           探测器端
+ 0：独立式 IL + 2T         0x12
+ 1：独立式 IL + 1T         0x11
+ 2: 独立式 IL              0x10
+ 3：非独立式 IL + 1T       0x21
+ 4: 非独立式 IL            0x20
+ 5: 非独立式 IL + 2T       0x22
+ 
+ 探测器端：独立式的0001 
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.T1_Enable">
+	<summary>
+  温度1传感器 使用标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.T2_Enable">
+	<summary>
+  温度2传感器 使用标志
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.name">
+	<summary>
+ 探测器所在箱体的名称
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.IL_Yujin">
+	<summary>
+ 电流预警值
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.IL_Baojin">
+	<summary>
+ 电流报警值
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.T1_Yujin">
+	<summary>
+ 温度1预警值
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.T1_baojin">
+	<summary>
+  温度1报警值
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.T2_Yujin">
+	<summary>
+  温度2预警值
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.T2_baojin">
+	<summary>
+  温度2报警值
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.Comm_State">
+	<summary>
+ 通信状态
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.Comm_Fail_Count">
+	<summary>
+ 通讯故障累加&gt;3次，则通讯故障，报警
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.comm_Fail_Sta">
+	<summary>
+ true=故障报警弹出， fasle=没有故障
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.net">
+	<summary>
+ 探测器所归属的通讯支路
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.net_id">
+	<summary>
+ 探测器在所归属的通讯支路的顺序位置
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.IL">
+	<summary>
+实时的剩余电流值
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.T1">
+	<summary>
+ 实时的温度T1
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.T2">
+	<summary>
+ 实时的温度值T2
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.IL_Baojin_Max">
+	<summary>
+ 电流报警时的最大值
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.T1_Baojin_Max">
+	<summary>
+ T1报警时的最大值
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.T2_Baojin_Max">
+	<summary>
+ T2报警时的最大值
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq.Pre_comm">
+	<summary>
+ 先前的通讯状态 1=已连接  0=未连接
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FEFS.Tcq">
+	<summary>
+ 探测器类
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FEFS.Guzhang_info">
+	<summary>
+ 故障报警信息对象
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FEFS.Alarm_info">
+	<summary>
+ 监控报警信息对象
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.FEFS_USER.user_name">
+	<summary>
+  用户名(小于10个字符)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.FEFS_USER.user_password">
+	<summary>
+  用户密码(小于20个字符)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.FEFS_USER.user_level">
+	<summary>
+ 用户权限(操作员or管理员)
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FEFS.FEFS_USER">
+	<summary>
+ FEFS系统用户类
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq_Self_Check.Self_Check_Result">
+	<summary>
+ 自检结果 2=等待 1=完成 0=失败
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.Tcq_Self_Check.Comm">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.TX_Send_Info.id">
+	<summary>
+ 对象序号
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.TX_Send_Info.tcq_id">
+	<summary>
+ 探测器地址
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.TX_Send_Info.info_kind">
+	<summary>
+  信息类型 1=产生报警  2=产生故障   3=故障恢复. 4=主电故障  5=主电恢复  6=备电故障  7=备电恢复 
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.TX_Send_Info.baojin_kind">
+	<summary>
+ 报警类型 1=漏电流报警   2=温度1/2报警
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.TX_Send_Info.guzhang_kind">
+	<summary>
+ A=漏电故障   B=温度故障   P=通讯故障
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.TX_Send_Info.happen_time">
+	<summary>
+ 发生时间
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FEFS.TX_Send_Info.tongdao">
+	<summary>
+ 通道 1=电流 2=温度1  3=温度2
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FEFS.TX_Send_Info">
+	<summary>
+  待发送的图像显示信息对象类。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form3.Show_All_Tcq">
+	<summary>
+ 显示所有探测器记录，并标记系统正在使用的记录行
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Restar.Button12_Click(System.Object,System.EventArgs)">
+	<summary>
+ 单独复位，探测器
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Restar.Refresh_Table">
+	<summary>
+  刷新表格
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_Baojin.Button1_Click(System.Object,System.EventArgs)">
+	<summary>
+ 查询按钮。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="F:FEFS.Form_SelfCheck.sbsb">
+	<summary>
+ 1=主电工作灯   2=备电工作  3=监控报警 4=故障报警  5=
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Sys_Power_Check">
+	<summary>
+ 系统电源状态自检
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Button2_Click(System.Object,System.EventArgs)">
+	<summary>
+ 主电源指示灯手动检测
+ 触发后指示灯一直闪闪，直到点击停止。其间，自动检查和，手检的其它项目，全部除能。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Button3_Click(System.Object,System.EventArgs)">
+	<summary>
+  备电源指示灯手动检测
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Button4_Click(System.Object,System.EventArgs)">
+	<summary>
+ 报警指示灯手动检测
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Button5_Click(System.Object,System.EventArgs)">
+	<summary>
+ 扬声器手动检测
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Button6_Click(System.Object,System.EventArgs)">
+	<summary>
+ 故障指示灯手动检测
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.All_Lamp_Test">
+	<summary>
+ 所有指示灯闪烁测试，持续时间5S。
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Button8_Click(System.Object,System.EventArgs)">
+	<summary>
+ 用户检查显示器。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Timer3_Tick(System.Object,System.EventArgs)">
+	<summary>
+ 此定时器是自检的时候，声光控制使用。
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Refresh_Table">
+	<summary>
+  刷新表格
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Button11_Click(System.Object,System.EventArgs)">
+	<summary>
+ 全选按钮
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Button10_Click(System.Object,System.EventArgs)">
+	<summary>
+ 取消全选
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FEFS.Form_SelfCheck.Button12_Click(System.Object,System.EventArgs)">
+	<summary>
+ 选择探测器自检
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="T:FEFS.Form_Size">
+	<summary>
+此模块用来计算所有的窗体及控件的位置和大小。。
+ </summary>
+	<remarks></remarks>
+</member><member name="P:FEFS.My.Resources.Resources.ResourceManager">
+	<summary>
+  返回此类使用的缓存 ResourceManager 实例。
+</summary>
+</member><member name="P:FEFS.My.Resources.Resources.Culture">
+	<summary>
+  为使用此强类型资源类的所有资源查找
+  重写当前线程的 CurrentUICulture 属性。
+</summary>
+</member><member name="T:FEFS.My.Resources.Resources">
+	<summary>
+  强类型资源类，用于查找本地化字符串等。
+</summary>
+</member>
+</members>
+</doc>

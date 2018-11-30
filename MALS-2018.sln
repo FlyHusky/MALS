@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MALS-2018", "FEFS-2015\MALS-2018.vbproj", "{2B809492-17D1-4B31-80FC-800F48CDAA7E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "天冠科技", "..\MALS-Install\天冠科技\天冠科技.vdproj", "{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+		报警灯监控系统|Any CPU = 报警灯监控系统|Any CPU
+		报警灯监控系统|x86 = 报警灯监控系统|x86
+		天冠科技-报警器|Any CPU = 天冠科技-报警器|Any CPU
+		天冠科技-报警器|x86 = 天冠科技-报警器|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.Debug|x86.ActiveCfg = Debug|x86
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.Debug|x86.Build.0 = Debug|x86
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.Release|x86.ActiveCfg = Release|Any CPU
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.Release|x86.Build.0 = Release|Any CPU
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.报警灯监控系统|Any CPU.ActiveCfg = 报警灯监控系统|Any CPU
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.报警灯监控系统|Any CPU.Build.0 = 报警灯监控系统|Any CPU
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.报警灯监控系统|x86.ActiveCfg = 报警灯监控系统|x86
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.报警灯监控系统|x86.Build.0 = 报警灯监控系统|x86
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.天冠科技-报警器|Any CPU.ActiveCfg = 天冠科技-报警器|Any CPU
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.天冠科技-报警器|Any CPU.Build.0 = 天冠科技-报警器|Any CPU
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.天冠科技-报警器|x86.ActiveCfg = 天冠科技-报警器|x86
+		{2B809492-17D1-4B31-80FC-800F48CDAA7E}.天冠科技-报警器|x86.Build.0 = 天冠科技-报警器|x86
+		{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}.Debug|Any CPU.ActiveCfg = Debug
+		{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}.Debug|x86.ActiveCfg = Debug
+		{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}.Release|Any CPU.ActiveCfg = Release
+		{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}.Release|x86.ActiveCfg = Release
+		{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}.报警灯监控系统|Any CPU.ActiveCfg = Release
+		{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}.报警灯监控系统|x86.ActiveCfg = Release
+		{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}.天冠科技-报警器|Any CPU.ActiveCfg = 天冠科技-报警器
+		{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}.天冠科技-报警器|Any CPU.Build.0 = 天冠科技-报警器
+		{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}.天冠科技-报警器|x86.ActiveCfg = 天冠科技-报警器
+		{C0301FE2-3063-456A-BBF8-5F7DE6A8F61B}.天冠科技-报警器|x86.Build.0 = 天冠科技-报警器
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

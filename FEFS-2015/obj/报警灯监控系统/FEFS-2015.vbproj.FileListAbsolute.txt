@@ -1,0 +1,2 @@
+D:\多路报警灯控制与调试系统\天冠报警器监控系统\MALS-V1.0\FEFS-2015\bin\报警灯监控系统\报警灯监控系统.exe.config
+D:\多路报警灯控制与调试系统\天冠报警器监控系统\MALS-V1.0\FEFS-2015\obj\报警灯监控系统\FEFS-2015.vbproj.ResolveComReference.cache
