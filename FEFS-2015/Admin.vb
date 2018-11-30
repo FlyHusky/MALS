@@ -75,11 +75,6 @@ Public Class Admin
             ComboBox14.SelectedIndex = 0
         End If
 
-
-
-
-
-
         ButXG.Text = "修改"
         Button6.Text = "保存"
         Button6.Enabled = False
@@ -91,7 +86,16 @@ Public Class Admin
         Panel8.Enabled = False
         Panel9.Enabled = False
         Panel10.Enabled = False
- 
+
+
+        If Sys_user_level = User_Level_Enum.Enger Then
+            Panel10.Visible = True
+        End If
+
+
+
+
+
     End Sub
 
 
