@@ -551,6 +551,7 @@ Public Class Form1
 
     Private Sub DataGridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView1.Click
         Main.PanDan.Visible = False
+        Main.LaPass.Text = "0"
     End Sub
 
     '''' <summary>
@@ -640,7 +641,7 @@ Public Class Form1
         'End If
         Login_event = 7    '事件7
         Login_Level = 1    '权限至少大于等于1
-        Login_Need_Level = "操作员"
+        Login_Need_Level = User_Level_Enum.Oper
         Login_Mes = "请输入'操作员'或'管理员'的密码！！！"
         LoginForm1.Show(Me)
     End Sub
@@ -673,6 +674,7 @@ Public Class Form1
 
     Private Sub DataGridView2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView2.Click
         Main.PanDan.Visible = False
+        Main.LaPass.Text = "0"
     End Sub
 
     ''' <summary>

@@ -62,6 +62,8 @@ Partial Class Form_Bjd
         Me.BJDlampStdGreen = New System.Windows.Forms.PictureBox
         Me.BJDlampStdRed = New System.Windows.Forms.PictureBox
         Me.BJDbuttonStdGreen = New System.Windows.Forms.PictureBox
+        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.Button7 = New System.Windows.Forms.Button
         Me.Panel1.SuspendLayout()
         Me.BJDpanelStd.SuspendLayout()
         CType(Me.BJDbuttonStd, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -473,12 +475,35 @@ Partial Class Form_Bjd
         Me.BJDbuttonStdGreen.TabStop = False
         Me.BJDbuttonStdGreen.Visible = False
         '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(507, 19)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(67, 26)
+        Me.TextBox1.TabIndex = 15
+        Me.TextBox1.Text = "13"
+        Me.TextBox1.Visible = False
+        '
+        'Button7
+        '
+        Me.Button7.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button7.Location = New System.Drawing.Point(590, 12)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(91, 36)
+        Me.Button7.TabIndex = 16
+        Me.Button7.Text = "设置"
+        Me.Button7.UseVisualStyleBackColor = True
+        Me.Button7.Visible = False
+        '
         'Form_Bjd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(1151, 696)
+        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.BJDbuttonStdGreen)
         Me.Controls.Add(Me.BJDlampStdGreen)
         Me.Controls.Add(Me.BJDlampStdRed)
@@ -514,6 +539,7 @@ Partial Class Form_Bjd
         CType(Me.BJDlampStdRed, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BJDbuttonStdGreen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
@@ -554,5 +580,7 @@ Partial Class Form_Bjd
     Friend WithEvents BJDlampStdRed As System.Windows.Forms.PictureBox
     Friend WithEvents BJDlampStdGreen As System.Windows.Forms.PictureBox
     Friend WithEvents BJDbuttonStdGreen As System.Windows.Forms.PictureBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 
 End Class

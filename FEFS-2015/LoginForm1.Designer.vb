@@ -108,6 +108,7 @@ Partial Class LoginForm1
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"操作员", "管理员"})
         Me.ComboBox1.Location = New System.Drawing.Point(173, 59)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(220, 20)

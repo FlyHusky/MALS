@@ -101,10 +101,10 @@ Public Class Welcom_Form
 
 
         '----------------数据初始化，从文件或数据库加载---------------
-        '  Sys_Init()
+        Sys_Init()
 
-        sthread = New Thread(AddressOf Sys_Init)
-        sthread.Start()
+        ' sthread = New Thread(AddressOf Sys_Init)
+        ' sthread.Start()
 
         '-------------------------------------------------------------
 
@@ -112,8 +112,9 @@ Public Class Welcom_Form
         Lbl_Sys_int.Location = New Point(50, Panel1.Height + ProgressBar1.Height + my_top)
         Lbl_Sys_int.Text = "系统初始化准备中。。。"
 
-        'Label1.Text = Sys_name
-        Label1.Text = "报警器监控系统"
+        Label1.Text = Sys_name
+        '  Label1.Text = "报警器监控系统"
+        Label2.Visible = False
 
         Dim center As Integer
         center = CInt((Panel1.Width - Label1.Width) / 2)

@@ -1502,7 +1502,7 @@
 	<remarks></remarks>
 </member><member name="M:MALS.Main.But_Sys_SelfCheck_Click(System.Object,System.EventArgs)">
 	<summary>
- 原系统自检按钮-在MALS中,设置为，单机调试
+ 单机调试
  </summary>
 	<param name="sender"></param>
 	<param name="e"></param>
@@ -1640,6 +1640,10 @@
  </summary>
 	<param name="sender"></param>
 	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:MALS.Main.PasswordCheck">
+	<summary>
+	</summary>
 	<remarks></remarks>
 </member><member name="M:MALS.Main.Button7_Click_1(System.Object,System.EventArgs)">
 	<summary>
@@ -1784,14 +1788,16 @@
  公司id,用于加载主体背景  1=天冠，加载company1.jpg   2=亚松，加载commpany2.jpg  其它=commpany.jgp
  </summary>
 	<remarks></remarks>
-</member><member name="F:MALS.HX_Mod.SelfCheck_Use_LampAndSpeaker">
+</member><member name="F:MALS.HX_Mod.Sys_Oper_Pass">
 	<summary>
- 标志自检模块暂时控制声光器件
+ 在MALS中-只有2个账号和对应的密码。
+ 这个是操作员的密码，从文件中读取过来的。
  </summary>
 	<remarks></remarks>
-</member><member name="F:MALS.HX_Mod.SelfCheck_Use_Tcq_Comm">
+</member><member name="F:MALS.HX_Mod.Sys_Maner_Pass">
 	<summary>
- 自检时和探测器实时通讯
+ 在MALS中-只有2个账号和对应的密码。
+ 这个是管理员的密码，从文件中读取过来的。
  </summary>
 	<remarks></remarks>
 </member><member name="F:MALS.HX_Mod.User_Level_Enum.Common">
@@ -1807,6 +1813,11 @@
 </member><member name="F:MALS.HX_Mod.User_Level_Enum.Maner">
 	<summary>
  管理员
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MALS.HX_Mod.User_Level_Enum.ManerSuper">
+	<summary>
+ 使用超级账号登录的管理员。
  </summary>
 	<remarks></remarks>
 </member><member name="F:MALS.HX_Mod.User_Level_Enum.Enger">
@@ -1825,6 +1836,41 @@
  1=操作员，
  2=管理员，
  3=超级用户
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MALS.HX_Mod.Fefs_Users">
+	<summary>
+  系统用户对象数组-在MALS中暂时不用。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MALS.HX_Mod.Login_Mes">
+	<summary>
+ 用户登录时提醒信息，会现在在LoginForm窗体
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MALS.HX_Mod.Login_Need_Level">
+	<summary>
+ 需要用户以何种身份登录
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MALS.HX_Mod.Login_event">
+	<summary>
+  用户登录输入密码时的 事件记录
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MALS.HX_Mod.Login_Level">
+	<summary>
+ 用户登录输入密码时的 用户权限要求
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MALS.HX_Mod.SelfCheck_Use_LampAndSpeaker">
+	<summary>
+ 标志自检模块暂时控制声光器件
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MALS.HX_Mod.SelfCheck_Use_Tcq_Comm">
+	<summary>
+ 自检时和探测器实时通讯
  </summary>
 	<remarks></remarks>
 </member><member name="F:MALS.HX_Mod.Sys_Lock">
@@ -1926,16 +1972,6 @@
 </member><member name="F:MALS.HX_Mod.Fesn">
 	<summary>
   系统电气火灾探测器对象数组
- </summary>
-	<remarks></remarks>
-</member><member name="F:MALS.HX_Mod.Login_Mes">
-	<summary>
- 用户登录时提醒信息，会现在在LoginForm窗体
- </summary>
-	<remarks></remarks>
-</member><member name="F:MALS.HX_Mod.Login_Need_Level">
-	<summary>
- 需要用户以何种身份登录
  </summary>
 	<remarks></remarks>
 </member><member name="F:MALS.HX_Mod.Comm_Loop_Id">
@@ -2423,11 +2459,6 @@
 	<param name="sender"></param>
 	<param name="e"></param>
 	<remarks></remarks>
-</member><member name="M:MALS.Form_Bjd.AllGroupboxDisable">
-	<summary>
- 使能所有的报警器 groupbox
- </summary>
-	<remarks></remarks>
 </member><member name="M:MALS.Form_Bjd.AllGroupboxEnable">
 	<summary>
  使能所有的报警器 groupbox
@@ -2436,13 +2467,6 @@
 </member><member name="M:MALS.FormSetAddr.Button1_Click(System.Object,System.EventArgs)">
 	<summary>
  设置报警器的地址
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:MALS.Form_Map_View.Button12_Click(System.Object,System.EventArgs)">
-	<summary>
- 放置图标按钮。。
  </summary>
 	<param name="sender"></param>
 	<param name="e"></param>
@@ -2462,6 +2486,20 @@
 	</summary>
 	<param name="sender"></param>
 	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:MALS.LoginForm1.Login_Work">
+	<summary>
+ Login_event 数值定义
+ 1：进入参数设置
+ 2：参数设置窗体里面用的
+ 3：自检用-MALS不用
+ 4：系统复位
+ 5：单机调试
+ 6：退出系统
+ 7：报警全开
+ 9: 图形显示窗体-打开或关闭报警。
+ 10：其它通讯指令发送权限
+ </summary>
 	<remarks></remarks>
 </member><member name="T:MALS.Form_Size">
 	<summary>

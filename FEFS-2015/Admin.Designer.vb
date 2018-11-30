@@ -22,13 +22,13 @@ Partial Class Admin
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle43 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle44 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle47 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle48 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle49 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle45 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle46 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.Button12 = New System.Windows.Forms.Button
@@ -76,7 +76,6 @@ Partial Class Admin
         Me.Button15 = New System.Windows.Forms.Button
         Me.Button14 = New System.Windows.Forms.Button
         Me.Button8 = New System.Windows.Forms.Button
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox
         Me.TabControl2 = New System.Windows.Forms.TabControl
         Me.TabPage3 = New System.Windows.Forms.TabPage
         Me.Button18 = New System.Windows.Forms.Button
@@ -87,6 +86,8 @@ Partial Class Admin
         Me.Label21 = New System.Windows.Forms.Label
         Me.Label15 = New System.Windows.Forms.Label
         Me.TabPage4 = New System.Windows.Forms.TabPage
+        Me.TextBox11 = New System.Windows.Forms.TextBox
+        Me.Label38 = New System.Windows.Forms.Label
         Me.Button23 = New System.Windows.Forms.Button
         Me.TextBox9 = New System.Windows.Forms.TextBox
         Me.TextBox10 = New System.Windows.Forms.TextBox
@@ -148,6 +149,7 @@ Partial Class Admin
         Me.Label10 = New System.Windows.Forms.Label
         Me.TextBox1 = New System.Windows.Forms.TextBox
         Me.TabC = New System.Windows.Forms.TabControl
+        Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -155,7 +157,6 @@ Partial Class Admin
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox11.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
@@ -171,6 +172,7 @@ Partial Class Admin
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.TabC.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -356,43 +358,43 @@ Partial Class Admin
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
-        DataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle43.BackColor = System.Drawing.Color.White
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle43
-        DataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle44.Font = New System.Drawing.Font("宋体", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        DataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle44
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("宋体", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridView1.ColumnHeadersHeight = 25
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_name, Me.Column_Password, Me.Column_Level})
-        DataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle47.Font = New System.Drawing.Font("宋体", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        DataGridViewCellStyle47.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle47
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("宋体", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridView1.EnableHeadersVisualStyles = False
         Me.DataGridView1.Location = New System.Drawing.Point(32, 76)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        DataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle48.Font = New System.Drawing.Font("宋体", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        DataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle48
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("宋体", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle49
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridView1.RowTemplate.Height = 23
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(560, 241)
@@ -400,8 +402,8 @@ Partial Class Admin
         '
         'Column_name
         '
-        DataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column_name.DefaultCellStyle = DataGridViewCellStyle45
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column_name.DefaultCellStyle = DataGridViewCellStyle10
         Me.Column_name.HeaderText = "用户名"
         Me.Column_name.Name = "Column_name"
         Me.Column_name.ReadOnly = True
@@ -420,8 +422,8 @@ Partial Class Admin
         '
         'Column_Level
         '
-        DataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column_Level.DefaultCellStyle = DataGridViewCellStyle46
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column_Level.DefaultCellStyle = DataGridViewCellStyle11
         Me.Column_Level.HeaderText = "权限"
         Me.Column_Level.Name = "Column_Level"
         Me.Column_Level.ReadOnly = True
@@ -739,25 +741,13 @@ Partial Class Admin
         Me.Button8.Text = "系统用户管理"
         Me.Button8.UseVisualStyleBackColor = True
         '
-        'GroupBox6
-        '
-        Me.GroupBox6.BackColor = System.Drawing.Color.MediumAquamarine
-        Me.GroupBox6.Controls.Add(Me.TabControl2)
-        Me.GroupBox6.Font = New System.Drawing.Font("宋体", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.GroupBox6.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox6.Location = New System.Drawing.Point(29, 231)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(113, 32)
-        Me.GroupBox6.TabIndex = 5
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "修改登录密码"
-        Me.GroupBox6.Visible = False
-        '
         'TabControl2
         '
+        Me.TabControl2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl2.Controls.Add(Me.TabPage3)
         Me.TabControl2.Controls.Add(Me.TabPage4)
-        Me.TabControl2.Location = New System.Drawing.Point(71, 43)
+        Me.TabControl2.Location = New System.Drawing.Point(66, 73)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
         Me.TabControl2.Size = New System.Drawing.Size(386, 304)
@@ -772,10 +762,10 @@ Partial Class Admin
         Me.TabPage3.Controls.Add(Me.Label22)
         Me.TabPage3.Controls.Add(Me.Label21)
         Me.TabPage3.Controls.Add(Me.Label15)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 26)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(378, 276)
+        Me.TabPage3.Size = New System.Drawing.Size(378, 274)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "修改管理员密码"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -794,7 +784,7 @@ Partial Class Admin
         Me.TextBox7.Location = New System.Drawing.Point(161, 135)
         Me.TextBox7.MaxLength = 10
         Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(97, 23)
+        Me.TextBox7.Size = New System.Drawing.Size(146, 26)
         Me.TextBox7.TabIndex = 12
         Me.TextBox7.UseSystemPasswordChar = True
         '
@@ -803,7 +793,7 @@ Partial Class Admin
         Me.TextBox6.Location = New System.Drawing.Point(161, 89)
         Me.TextBox6.MaxLength = 10
         Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(97, 23)
+        Me.TextBox6.Size = New System.Drawing.Size(146, 26)
         Me.TextBox6.TabIndex = 11
         Me.TextBox6.UseSystemPasswordChar = True
         '
@@ -812,10 +802,8 @@ Partial Class Admin
         Me.TextBox5.Location = New System.Drawing.Point(161, 50)
         Me.TextBox5.MaxLength = 10
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox5.Size = New System.Drawing.Size(97, 23)
+        Me.TextBox5.Size = New System.Drawing.Size(146, 26)
         Me.TextBox5.TabIndex = 10
-        Me.TextBox5.UseSystemPasswordChar = True
         '
         'Label22
         '
@@ -849,22 +837,42 @@ Partial Class Admin
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.TextBox11)
+        Me.TabPage4.Controls.Add(Me.Label38)
         Me.TabPage4.Controls.Add(Me.Button23)
         Me.TabPage4.Controls.Add(Me.TextBox9)
         Me.TabPage4.Controls.Add(Me.TextBox10)
         Me.TabPage4.Controls.Add(Me.Label28)
         Me.TabPage4.Controls.Add(Me.Label29)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 26)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(378, 276)
+        Me.TabPage4.Size = New System.Drawing.Size(378, 274)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "修改操作员密码"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'TextBox11
+        '
+        Me.TextBox11.Location = New System.Drawing.Point(146, 38)
+        Me.TextBox11.MaxLength = 10
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(146, 26)
+        Me.TextBox11.TabIndex = 22
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label38.Location = New System.Drawing.Point(69, 42)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(72, 16)
+        Me.Label38.TabIndex = 21
+        Me.Label38.Text = "当前密码"
+        '
         'Button23
         '
-        Me.Button23.Location = New System.Drawing.Point(134, 160)
+        Me.Button23.Location = New System.Drawing.Point(132, 179)
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(101, 29)
         Me.Button23.TabIndex = 20
@@ -873,19 +881,19 @@ Partial Class Admin
         '
         'TextBox9
         '
-        Me.TextBox9.Location = New System.Drawing.Point(148, 112)
+        Me.TextBox9.Location = New System.Drawing.Point(146, 131)
         Me.TextBox9.MaxLength = 10
         Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(97, 23)
+        Me.TextBox9.Size = New System.Drawing.Size(146, 26)
         Me.TextBox9.TabIndex = 19
         Me.TextBox9.UseSystemPasswordChar = True
         '
         'TextBox10
         '
-        Me.TextBox10.Location = New System.Drawing.Point(148, 66)
+        Me.TextBox10.Location = New System.Drawing.Point(146, 85)
         Me.TextBox10.MaxLength = 10
         Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(97, 23)
+        Me.TextBox10.Size = New System.Drawing.Size(146, 26)
         Me.TextBox10.TabIndex = 18
         Me.TextBox10.UseSystemPasswordChar = True
         '
@@ -893,7 +901,7 @@ Partial Class Admin
         '
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label28.Location = New System.Drawing.Point(54, 114)
+        Me.Label28.Location = New System.Drawing.Point(52, 133)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(88, 16)
         Me.Label28.TabIndex = 16
@@ -903,7 +911,7 @@ Partial Class Admin
         '
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label29.Location = New System.Drawing.Point(86, 73)
+        Me.Label29.Location = New System.Drawing.Point(84, 92)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(56, 16)
         Me.Label29.TabIndex = 15
@@ -1195,6 +1203,7 @@ Partial Class Admin
         Me.TabPage1.Size = New System.Drawing.Size(545, 515)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "基础参数设置"
+        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'Panel10
         '
@@ -1487,12 +1496,24 @@ Partial Class Admin
         'TabC
         '
         Me.TabC.Controls.Add(Me.TabPage1)
+        Me.TabC.Controls.Add(Me.TabPage2)
         Me.TabC.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.TabC.Location = New System.Drawing.Point(202, 95)
         Me.TabC.Name = "TabC"
         Me.TabC.SelectedIndex = 0
         Me.TabC.Size = New System.Drawing.Size(553, 545)
         Me.TabC.TabIndex = 9
+        '
+        'TabPage2
+        '
+        Me.TabPage2.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.TabPage2.Controls.Add(Me.TabControl2)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 26)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(545, 515)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "修改密码"
         '
         'Admin
         '
@@ -1503,7 +1524,6 @@ Partial Class Admin
         Me.Controls.Add(Me.TabC)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Admin"
@@ -1517,7 +1537,6 @@ Partial Class Admin
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBox11.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox6.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
@@ -1544,6 +1563,7 @@ Partial Class Admin
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.TabC.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1579,7 +1599,6 @@ Partial Class Admin
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents Button19 As System.Windows.Forms.Button
-    Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents Button20 As System.Windows.Forms.Button
     Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
     Friend WithEvents Button21 As System.Windows.Forms.Button
@@ -1666,4 +1685,7 @@ Partial Class Admin
     Friend WithEvents Panel9 As System.Windows.Forms.Panel
     Friend WithEvents ComboBox13 As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents TextBox11 As System.Windows.Forms.TextBox
+    Friend WithEvents Label38 As System.Windows.Forms.Label
 End Class

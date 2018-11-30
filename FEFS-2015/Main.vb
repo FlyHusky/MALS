@@ -927,10 +927,23 @@ Public Class Main
     ''' <remarks></remarks>
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
 
-        Me.Close()
-
+        ' If MessageBox.Show("是否确定退出系统？", "确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+        If Sys_Need_Pass Then
+            Login_event = 6
+            Login_Need_Level = User_Level_Enum.Oper
+            Login_Mes = "请输入'操作员'的密码！！！"
+            LoginForm1.Show(Me)
+        Else
+            Me.Close()
+        End If
+        '  End If
 
     End Sub
+    Public Sub Button4_Click1()
+        Me.Close()
+    End Sub
+
+
 
 
     ''' <summary>
@@ -4521,21 +4534,33 @@ Rec_data_jz:
     End Sub
 
 
-
-
-
     ''' <summary>
-    ''' 原系统自检按钮-在MALS中,设置为，单机调试
+    ''' 单机调试
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub But_Sys_SelfCheck_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles But_Sys_SelfCheck.Click
-
         If MessageBox.Show("进入单机通讯调试后，系统《实时监控》功能模块将停止，是否继续？", "确定操作", MessageBoxButtons.OKCancel) = Windows.Forms.DialogResult.Cancel Then
             Exit Sub
         End If
 
+
+        If Sys_Need_Pass Then
+            Login_event = 5    '事件1
+            Login_Need_Level = User_Level_Enum.Maner
+            Login_Mes = "请输入'管理员'的密码！！！"
+            LoginForm1.Show(Me)
+        Else
+            But_Sys_SelfCheck_Click1()
+        End If
+
+
+    End Sub
+
+
+
+    Public Sub But_Sys_SelfCheck_Click1()
         But_Data_View.Text = "请重启软件"
         But_Data_View.ForeColor = Color.Red
         But_Table_View.Text = "功能已停止"
@@ -4544,9 +4569,6 @@ Rec_data_jz:
         But_Map_View.ForeColor = Color.Red
         '标记主程序查询暂停
         Main_Chaxun_Loop_Wait = True
-
-
-
 
         But_Sys_SelfCheck.BackColor = Color.White
 
@@ -4569,6 +4591,7 @@ Rec_data_jz:
         PanAutoChaxun.Visible = True
 
         PanDan.Visible = True
+        LaPass.Text = 1
         Panel4.Visible = True
 
         GroupBox1.Visible = True
@@ -4576,8 +4599,6 @@ Rec_data_jz:
         GroupBox4.Visible = True
         GroupBox6.Visible = True
 
-        'PanDan.Left = (Panel4.Width - PanDan.Width) \ 2 + Panel4.Left
-        ' PanDan.Top = (Panel4.Height - PanDan.Height) \ 2
         PanDan.BringToFront()
 
         If TCQ_Usart_State <> True Then
@@ -4592,21 +4613,6 @@ Rec_data_jz:
             GroupBox6.Enabled = True
         End If
 
-        '关闭
-        'If TCQ_Usart_State Then
-        '    Tcq_Port.Close()
-        'End If
-
-        '关闭主程序，循环查询，让出串口
-        ' Timer1.Enabled = False
-
-        '当点击单机调试之后，系统的主程序通讯，即会停止。
-        '可简单的尝试停止timer1定时器。也可在定时器内部处理做文章。
-        '最好实现单机调试和 主程序通讯中（单机参数设置）使用同样的代码
-        '以减少代码量和软件的复杂度。
-
-
-
         BjqCommCt = 0
         Label28.Text = BjqCommCt.ToString
 
@@ -4617,22 +4623,7 @@ Rec_data_jz:
         Label10.Text = ComAddr.Text
 
     End Sub
-
-
-    Public Sub But_Sys_SelfCheck_Click1()
-        But_Sys_SelfCheck.BackColor = Color.White
-        Panel4.Visible = False
-        But_Form_Enable_Work()
-        But_Data_Tree_Close()
-        But_Set_Tree_Close()
-
-        But_Sys_SelfCheck.Enabled = False
-        Close_Form()
-        Cur_Form = Cur_Form_Enum.Sys_SelfCheck_Form
-        Form_SelfCheck.MdiParent = Me
-        Form_SelfCheck.Show()
-        Form_SelfCheck.BringToFront()
-    End Sub
+ 
 
 
     ''' <summary>
@@ -4642,12 +4633,18 @@ Rec_data_jz:
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub But_Sys_Reset_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles But_Sys_Reset.Click
-
-
         If MessageBox.Show("是否确定软件复位操作？", "确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
-            Sys_Close()
-            WillClose = True
-            Application.Restart()
+            If Sys_Need_Pass Then
+
+                Login_event = 4
+                Login_Need_Level = User_Level_Enum.Oper
+                Login_Mes = "请输入'操作员'的密码！！！"
+                LoginForm1.Show(Me)
+            Else
+                Sys_Close()
+                WillClose = True
+                Application.Restart()
+            End If
         End If
 
     End Sub
@@ -4661,38 +4658,9 @@ Rec_data_jz:
 
 
     Public Sub But_Sys_Reset_Click1()
-        '询问是否真的复位。。
-        ' Me.Enabled = False
-        '编写时间：2015年8月11日15:55:44
-        '编写内容：系统复位，首先向探测器发送复位指令，然后系统在复位重启
-        '复位逻辑：只发送一次，不接受回响，
-
-        'If Timer1.Enabled <> False Then   '如果timer1=false，则是 操作员引起的复位操作
-        '    '停止住的通讯查询任务。。。。
-        '    Timer1.Enabled = False
-        '    '发送通讯复位指令由timer3完成。。
-
-        '    If TCQ_Usart_State Then
-        '        Timer3.Interval = 40
-        '        Timer3.Enabled = True
-        '        Comm_Loop_Id = 0
-        '    End If
-        'End If
-
-        Panel4.Visible = False
-
-        But_Form_Enable_Work()
-        But_Data_Tree_Close()
-        But_Set_Tree_Close()
-
-        Close_Form()
-        But_Sys_Reset.Enabled = False
-
-        Cur_Form = Cur_Form_Enum.Sys_Reset_Form
-        Form_Restar.MdiParent = Me
-        Form_Restar.Show()
-        Form_Restar.BringToFront()
-        But_Sys_Reset.BackColor = Color.White
+        Sys_Close()
+        WillClose = True
+        Application.Restart()
     End Sub
 
 
@@ -4927,10 +4895,15 @@ Rec_data_jz:
         'End If
 
 
-
-        But_Pra_Set_Click_2()
-
-
+        If Sys_Need_Pass Then
+            Login_event = 1    '事件1
+            Login_Level = 2    '权限至少大于等于1
+            Login_Need_Level = User_Level_Enum.Maner
+            Login_Mes = "请输入'管理员'的密码！！！"
+            LoginForm1.Show(Me)
+        Else
+            But_Pra_Set_Click_2()
+        End If
 
     End Sub
 
@@ -4995,33 +4968,33 @@ Rec_data_jz:
         MessageBox.Show("此功能暂时不可用")
         Return
 
-        Sys_user_level = 0
-        Panel4.Visible = False
-        But_Form_Enable_Work()
-        But_Data_Tree_Close()
-        But_Set_Tree_Close()
-        But_Sys_Info.Enabled = False
-        Close_Form()
-        Cur_Form = Cur_Form_Enum.Sys_Weihu_Form
-        Form_Help.MdiParent = Me
-        Form_Help.Show()
-        Form_Help.BringToFront()
-        But_Sys_Info.BackColor = Color.White
+        'Sys_user_level = 0
+        'Panel4.Visible = False
+        'But_Form_Enable_Work()
+        'But_Data_Tree_Close()
+        'But_Set_Tree_Close()
+        'But_Sys_Info.Enabled = False
+        'Close_Form()
+        'Cur_Form = Cur_Form_Enum.Sys_Weihu_Form
+        'Form_Help.MdiParent = Me
+        'Form_Help.Show()
+        'Form_Help.BringToFront()
+        'But_Sys_Info.BackColor = Color.White
     End Sub
 
     Public Sub But_Sys_Info_Click1()
-        But_Sys_Info.BackColor = Color.White
-        Panel4.Visible = False
-        But_Form_Enable_Work()
-        But_Data_Tree_Close()
-        But_Set_Tree_Close()
+        'But_Sys_Info.BackColor = Color.White
+        'Panel4.Visible = False
+        'But_Form_Enable_Work()
+        'But_Data_Tree_Close()
+        'But_Set_Tree_Close()
 
-        But_Sys_Info.Enabled = False
-        Close_Form()
-        Cur_Form = Cur_Form_Enum.Sys_Weihu_Form
-        Form_Weihu.MdiParent = Me
-        Form_Weihu.Show()
-        Form_Weihu.BringToFront()
+        'But_Sys_Info.Enabled = False
+        'Close_Form()
+        'Cur_Form = Cur_Form_Enum.Sys_Weihu_Form
+        'Form_Weihu.MdiParent = Me
+        'Form_Weihu.Show()
+        'Form_Weihu.BringToFront()
     End Sub
 
 
@@ -5465,6 +5438,8 @@ Rec_data_jz:
 
             Baojing_Array.Clear()
             Guzhang_Array.Clear()
+            BjqFaultCount = 0
+            BjqAlarmCount = 0
 
             Main_Need_Refresh_Form1 = True
 
@@ -5589,7 +5564,13 @@ Rec_data_jz:
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button15_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button15.Click
-       
+
+        '加入密码权限验证。
+        If PasswordCheck() = False Then
+            Exit Sub
+        End If
+
+
         PcSendBjqAddr = Val(Label10.Text)
         PcSendBjqindex = Val(LaBjqIndex.Text)
 
@@ -5602,14 +5583,42 @@ Rec_data_jz:
     End Sub
 
     ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Function PasswordCheck() As Boolean
+        If Sys_Need_Pass = False Then
+            Return True
+        End If
+
+        If LaPass.Text = "1" Then
+            Return True
+        End If
+
+        '提示验证权限。
+
+        Login_event = 10    '事件1
+        Login_Need_Level = User_Level_Enum.Oper
+        Login_Mes = "请输入'操作员'的密码！！！"
+        LoginForm1.Show(Me)
+        Return False
+
+    End Function
+
+
+
+    ''' <summary>
     ''' 打开报警，记忆音 单曲播放
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button7_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-       
- 
+        '加入密码权限验证。
+        If PasswordCheck() = False Then
+            Exit Sub
+        End If
+
         PcSendBjqAddr = Val(Label10.Text)
         PcSendBjqindex = Val(LaBjqIndex.Text)
 
@@ -5628,7 +5637,10 @@ Rec_data_jz:
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button16_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button16.Click
- 
+        '加入密码权限验证。
+        If PasswordCheck() = False Then
+            Exit Sub
+        End If
         PcSendBjqAddr = Val(Label10.Text)
         PcSendBjqindex = Val(LaBjqIndex.Text)
 
@@ -5649,7 +5661,10 @@ Rec_data_jz:
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button17_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button17.Click
-
+        '加入密码权限验证。
+        If PasswordCheck() = False Then
+            Exit Sub
+        End If
         'PcSendBjqAddr = Val(ComAddr.SelectedIndex + 1)
         'PcSendBjqindex = ComAddr.SelectedIndex
         PcSendBjqAddr = Val(Label10.Text)
@@ -5673,7 +5688,10 @@ Rec_data_jz:
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button12.Click
-  
+        '加入密码权限验证。
+        If PasswordCheck() = False Then
+            Exit Sub
+        End If
         PcSendBjqAddr = Val(Label10.Text)
         PcSendBjqindex = Val(LaBjqIndex.Text)
         CommAlarmOff(PcSendBjqAddr, PcSendToBjq)
@@ -5691,7 +5709,7 @@ Rec_data_jz:
     ''' <remarks></remarks>
     Private Sub Button6_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
 
-       
+
         PcSendBjqAddr = Val(Label10.Text)
         PcSendBjqindex = Val(LaBjqIndex.Text)
 
@@ -5738,7 +5756,10 @@ Rec_data_jz:
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button13_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
-    
+        '加入密码权限验证。
+        If PasswordCheck() = False Then
+            Exit Sub
+        End If
         PcSendBjqAddr = Val(Label10.Text)
         PcSendBjqindex = PcSendBjqindex = Val(LaBjqIndex.Text)
         CommVolumAddRec(PcSendBjqAddr, 1, PcSendToBjq)
@@ -5754,7 +5775,10 @@ Rec_data_jz:
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button14_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button14.Click
- 
+        '加入密码权限验证。
+        If PasswordCheck() = False Then
+            Exit Sub
+        End If
         PcSendBjqAddr = Val(Label10.Text)
         PcSendBjqindex = Val(LaBjqIndex.Text)
         CommVolumAddRec(PcSendBjqAddr, 2, PcSendToBjq)
@@ -5770,7 +5794,10 @@ Rec_data_jz:
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button18_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button18.Click
-        
+        '加入密码权限验证。
+        If PasswordCheck() = False Then
+            Exit Sub
+        End If
         PcSendBjqAddr = Val(Label10.Text)
         PcSendBjqindex = PcSendBjqindex = Val(LaBjqIndex.Text)
         CommMusicPreNext(PcSendBjqAddr, 2, PcSendToBjq)
@@ -5786,7 +5813,10 @@ Rec_data_jz:
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button19_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button19.Click
-   
+        '加入密码权限验证。
+        If PasswordCheck() = False Then
+            Exit Sub
+        End If
         PcSendBjqAddr = Val(Label10.Text)
         PcSendBjqindex = Val(LaBjqIndex.Text)
         CommMusicPreNext(PcSendBjqAddr, 1, PcSendToBjq)
@@ -5805,9 +5835,6 @@ Rec_data_jz:
         GroupBox1.Visible = False
         GroupBox4.Visible = False
 
-        ' GroupBox1.Enabled = False
-        ' GroupBox4.Enabled = False
-
         GroupBox5.Top = 20
         GroupBox5.Width = 600
         GroupBox5.Height = 165
@@ -5818,14 +5845,13 @@ Rec_data_jz:
         GroupBox6.Top = GroupBox5.Top + GroupBox5.Height + 20
 
 
-
         PanDan.Width = 20 + GroupBox5.Width + 20
         PanDan.Height = 20 + GroupBox5.Height + 20 + GroupBox6.Height + 20
         GroupBox5.Left = 20
         GroupBox6.Left = 20
 
         GroupBox5.Enabled = True
-        GroupBox6.Enabled =True 
+        GroupBox6.Enabled = True
         GroupBox5.Show()
         GroupBox6.Show()
 
@@ -5834,6 +5860,7 @@ Rec_data_jz:
         End If
 
         PanDan.Visible = True
+        LaPass.Text = 0
         PanDan.BringToFront()
         PanAutoChaxun.Visible = False
         '地址
@@ -5934,12 +5961,6 @@ Rec_data_jz:
 
 
 
-
-
-    Private Sub La_Main_Power_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles La_Main_Power.Click
-
-    End Sub
-
     ''' <summary>
     ''' 报警全关按钮
     ''' </summary>
@@ -5947,6 +5968,19 @@ Rec_data_jz:
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button20_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button20.Click
+        If Sys_Need_Pass Then
+            Login_event = 8
+            Login_Need_Level = User_Level_Enum.Oper
+            Login_Mes = "请输入'操作员'的密码！！！"
+            LoginForm1.Show(Me)
+        Else
+            Button20_Click1()
+        End If
+    End Sub
+
+
+    ' 报警全关按钮
+    Public Sub Button20_Click1()
         If MessageBox.Show("是否确定操作？关闭所有报警器报警？", "请确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
             Exit Sub
         End If
@@ -5985,23 +6019,29 @@ Rec_data_jz:
 
     '报警全开按钮
     Private Sub Button21_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button21.Click
+        If Sys_Need_Pass Then
+            Login_event = 7
+            Login_Need_Level = User_Level_Enum.Oper
+            Login_Mes = "请输入'操作员'的密码！！！"
+            LoginForm1.Show(Me)
+        Else
+            Button21_Click1()
+        End If
+    End Sub
+
+    '报警全开。
+    Public Sub Button21_Click1()
         If MessageBox.Show("是否确定操作？打开所有报警器报警？", "请确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
             Exit Sub
         End If
-
-
         If TCQ_Usart_State = False Then
             MessageBox.Show("电脑串口打开失败，请检查串口，重启软件！！！")
             Exit Sub
         End If
-
-
         '广播协议不用接收回响，此处，直接停止主程序的通讯，
         '在此处使用串口，发送2次广播协议，每次间隔1000秒
         Timer1.Stop()
         Timer1.Enabled = False
-
-
         Try
             '1:生成广播通讯，数据帧
             CommAlarmAllOn(PcSendToBjq)
@@ -6014,15 +6054,17 @@ Rec_data_jz:
             Tcq_Port.DiscardOutBuffer()         '清空串口发送缓存区
             Tcq_Port.Write(PcSendToBjq, 0, 9)   '将数据发送出去。
             Tcq_Port.DiscardInBuffer()
-
         Catch ex As Exception
             MessageBox.Show("操作失败,请检查串口！！！" & vbCrLf & ex.ToString)
         End Try
-
-      
         System.Threading.Thread.Sleep(500)
         Timer1.Enabled = True
     End Sub
+
+
+
+
+
 End Class
 
 'MALS 编写思路，还是要把单机通讯调试的代码放入到timer1,循环查询中去。

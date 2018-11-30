@@ -81,14 +81,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="报警灯监控系统.exe" size="2710528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="报警灯监控系统.exe" size="2711552">
       <assemblyIdentity name="报警灯监控系统" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>R0R9stWqg2y3656J+eOl+EZkT3c=</dsig:DigestValue>
+        <dsig:DigestValue>W9A1z+Zc9ma8ZA848jKjmy42s2M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

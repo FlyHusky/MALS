@@ -16,16 +16,6 @@ Public Class Admin
         Me.Width = Main.Panel4.Width
         Me.Height = Main.Panel4.Height
 
-        
-        'Panel5.Size = Panel4.Size
-        'Panel5.Left = Panel4.Left
-
-        'Panel6.Size = Panel4.Size
-        'Panel6.Left = Panel4.Left
-
-        'Panel7.Size = Panel4.Size
-        'Panel7.Left = Panel4.Left
-
 
         If Me.Width > TabC.Width * 2 Then
 
@@ -33,7 +23,6 @@ Public Class Admin
 
         End If
 
-        ' TabC.Top = (Me.Height - TabC.Height) \ 2
         TabC.Left = (Me.Width - TabC.Width) \ 3
 
         ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
@@ -87,14 +76,25 @@ Public Class Admin
         Panel9.Enabled = False
         Panel10.Enabled = False
 
+        Panel10.Visible = False
+
 
         If Sys_user_level = User_Level_Enum.Enger Then
             Panel10.Visible = True
         End If
 
+        If Sys_user_level = User_Level_Enum.ManerSuper Or Sys_user_level = User_Level_Enum.Enger Then
+            TextBox5.Enabled = False
+            '使用超级用户时，将直接显示管理员的密码和操作员的密码。
+            TextBox5.Text = Sys_Maner_Pass
+            TextBox11.Text = Sys_Oper_Pass
+            TextBox11.Enabled = False
+        End If
 
-
-
+        If Sys_user_level = User_Level_Enum.Maner Then
+            TextBox11.Text = Sys_Oper_Pass
+            TextBox11.Enabled = False
+        End If
 
     End Sub
 
@@ -482,24 +482,6 @@ Public Class Admin
 
     End Sub
 
-    '修改登录密码-菜单按钮
-    Private Sub Button19_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button19.Click
-        If Sys_user_name = "富自电气" Then
-            GroupBox6.Enabled = False
-        End If
-
-        GroupBox6.Top = GroupBox7.Top
-        GroupBox6.Width = GroupBox7.Width
-        GroupBox6.Height = GroupBox7.Height
-        GroupBox6.Left = GroupBox7.Left
-
-        GroupBox6.Visible = True
-        GroupBox6.BringToFront()
-
-
-    End Sub
-
-
     Private Sub ComboBox3_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox3.SelectedIndexChanged
         If Sys_user_level < 4 Then
             If ComboBox3.SelectedIndex = 2 Then
@@ -641,14 +623,14 @@ Public Class Admin
         '先判断3个输入框是否正常，2个新密码是否正常。
 
         '超级管理员不用输当前密码
-        If Sys_user_level < 3 Then
+        If Sys_user_level = User_Level_Enum.Maner Then
             If TextBox5.Text.Length < 3 Then
                 MsgBox("请输入当前密码！")
                 Exit Sub
             End If
         End If
 
-        If TextBox6.Text.Length < 3 Then
+        If TextBox6.Text.Length < 3 Or TextBox6.Text.Length > 10 Then
             MsgBox("请输入新的密码，最少3位，最多10位！")
             Exit Sub
         End If
@@ -661,60 +643,23 @@ Public Class Admin
         End If
 
 
-        If Sys_user_level < 3 Then
+        If Sys_user_level = User_Level_Enum.Maner Then
             '首先判断用户密码是否正确。
-            If Fefs_Users(0).user_name = "管理员" Then
-                If Fefs_Users(0).user_password <> Trim(TextBox5.Text) Then
-                    MsgBox("当前密码错误，请重新输入！")
-                    Exit Sub
-                End If
-            Else
-                If Fefs_Users(1).user_password <> Trim(TextBox5.Text) Then
-                    MsgBox("当前密码错误，请重新输入！")
-                    Exit Sub
-                End If
+
+            If Sys_Maner_Pass <> Trim(TextBox5.Text) Then
+                MsgBox("当前密码错误，请重新输入！")
+                Exit Sub
             End If
+
         End If
 
-
-        '首先判断用户密码是否正确。
-        'Dim rs As Byte
-        'rs = User_Login(Sys_user_name, Trim(TextBox5.Text))
-
-        'If rs <> 0 Then
-        Dim sql_str As String
-        sql_str = "update   user_info set user_password='" & Trim(TextBox6.Text) & "' where user_name='" & Sys_user_name & "'"
-
-        If Sql_Exe(sql_str) Then
-            '同时修改系统密码。
-            Save_GLY_Pass_Into_File(Trim(TextBox6.Text))
-            MsgBox("密码修改成功")
-
-            '0 是 管理员  1是操作员
-
-            If Fefs_Users(0).user_name = "管理员" Then
-                Fefs_Users(0).user_password = Trim(TextBox6.Text)
-            Else
-                Fefs_Users(1).user_password = Trim(TextBox6.Text)
-            End If
-
-
+        If Save_GLY_Pass_Into_File(Trim(TextBox6.Text)) Then
+            MsgBox("密码修改完成，以保存到备份文件中！")
+            Sys_Maner_Pass = Trim(TextBox6.Text)
         Else
-            '密码修改失败，这里将新密码保存备份文件中去。。
-            If Save_GLY_Pass_Into_File(Trim(TextBox6.Text)) Then
-                MsgBox("密码修改完成，以保存到备份文件中！")
-
-                If Fefs_Users(0).user_name = "管理员" Then
-                    Fefs_Users(0).user_password = Trim(TextBox6.Text)
-                Else
-                    Fefs_Users(1).user_password = Trim(TextBox6.Text)
-                End If
-
-            Else
-                MsgBox("密码修改失败")
-            End If
-
+            MsgBox("密码修改失败")
         End If
+
 
     End Sub
 
@@ -724,7 +669,7 @@ Public Class Admin
     Private Sub Button23_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button23.Click
 
 
-        If TextBox10.Text.Length < 3 Then
+        If TextBox10.Text.Length < 3 Or TextBox10.Text.Length > 10 Then
             MsgBox("请输入新的密码，最少3位，最多10位！")
             Exit Sub
         End If
@@ -737,37 +682,16 @@ Public Class Admin
         End If
 
 
-        Dim sql_str As String
-        sql_str = "update   user_info set user_password='" & Trim(TextBox10.Text) & "' where user_name='操作员'"
-
-        If Sql_Exe(sql_str) Then
-            '同时修改系统密码。
-            Save_GLY_Pass_Into_File(Trim(TextBox10.Text))
-            MsgBox("密码修改成功")
-
-            '0 是 管理员  1是操作员
-
-            If Fefs_Users(0).user_name = "操作员" Then
-                Fefs_Users(0).user_password = Trim(TextBox9.Text)
-            Else
-                Fefs_Users(1).user_password = Trim(TextBox9.Text)
-            End If
-
-
+       
+        '密码修改失败，这里将新密码保存备份文件中去。。
+        If Save_CZY_Pass_Into_File(Trim(TextBox10.Text)) Then
+            MsgBox("密码修改完成，以保存到备份文件中！")
+            Sys_Oper_Pass = Trim(TextBox9.Text)
         Else
-            '密码修改失败，这里将新密码保存备份文件中去。。
-            If Save_CZY_Pass_Into_File(Trim(TextBox10.Text)) Then
-                MsgBox("密码修改完成，以保存到备份文件中！")
-                If Fefs_Users(0).user_name = "操作员" Then
-                    Fefs_Users(0).user_password = Trim(TextBox9.Text)
-                Else
-                    Fefs_Users(1).user_password = Trim(TextBox9.Text)
-                End If
-            Else
-                MsgBox("密码修改失败")
-            End If
-
+            MsgBox("密码修改失败")
         End If
+
+
 
 
     End Sub
@@ -1015,28 +939,19 @@ Public Class Admin
             '标记主程序查询暂停
             Main.Main_Chaxun_Loop_Wait = True
 
-
-
-
             Panel4.Enabled = True
             Panel5.Enabled = True
             Panel6.Enabled = True
             Panel7.Enabled = True
             Panel8.Enabled = True
+            Panel9.Enabled = True
+            Panel10.Enabled = True
 
- 
             ButXG.Text = "刷新"
             Button6.Enabled = True
             TextBox8.Enabled = True
 
         Else
-
-            ' Panel4.Enabled = False
-            ' Panel5.Enabled = False
-            '’ Panel6.Enabled = False
-            'Panel7.Enabled = False
-            ' Panel8.Enabled = False
-
             TextBox1.Text = Sys_name
             TextBox2.Text = Sys_node_count.ToString
             ComboBox1.SelectedIndex = Sys_tcq_com_id - 1
@@ -1044,11 +959,6 @@ Public Class Admin
             TextBox8.Text = Sys_Comm_Fail_Ct.ToString
             ComboBox12.SelectedIndex = Sys_Form_Style
 
-
-
-            ' ButXG.Text = "修改"
-            'Button6.Text = "保存"
-            ' Button6.Enabled = False
         End If
     End Sub
 
@@ -1068,6 +978,9 @@ Public Class Admin
         Dim tcq_com_btl As Byte
         Dim comm_fail_ct As Byte
         Dim form_style As Byte
+        Dim need_pass As Byte
+        Dim company_id As Byte
+
 
         name = Trim(TextBox1.Text)
         node_cout = CInt(TextBox2.Text)
@@ -1076,6 +989,10 @@ Public Class Admin
         tcq_com_btl = CByte(ComboBox2.SelectedIndex + 1)  '波特率   
 
         form_style = CByte(ComboBox12.SelectedIndex)  '0-全屏 1-窗体
+
+        need_pass = CByte(ComboBox13.SelectedIndex)  ' 
+        company_id = CByte(ComboBox14.SelectedIndex)  ' 
+
 
         If name.Length > 20 Then
             MsgBox("系统名称太长！不能超过20个字！")
@@ -1095,7 +1012,8 @@ Public Class Admin
 
 
         If name <> Sys_name Or node_cout <> Sys_node_count Or tcq_com_id <> Sys_tcq_com_id Or _
-           tcq_com_btl <> Sys_tcq_com_btl Or Sys_Comm_Fail_Ct <> comm_fail_ct Or form_style <> Sys_Form_Style Then
+           tcq_com_btl <> Sys_tcq_com_btl Or Sys_Comm_Fail_Ct <> comm_fail_ct Or _
+           form_style <> Sys_Form_Style Or Sys_Need_Pass <> need_pass Or Sys_Company_Id <> company_id Then
 
             Try
                 Dim data_file_path As String
@@ -1110,8 +1028,8 @@ Public Class Admin
                 df_sw.WriteLine("-------------------波特率#" & tcq_com_btl)
                 df_sw.WriteLine("---报警器连续失联超限次数#" & comm_fail_ct)
                 df_sw.WriteLine("-------全屏显示or窗口显示#" & form_style)
-                df_sw.WriteLine("--------------预留控制位1#0")
-                df_sw.WriteLine("--------------预留控制位2#0")
+                df_sw.WriteLine("--------------预留控制位1#" & need_pass)
+                df_sw.WriteLine("--------------预留控制位2#" & company_id)
                 df_sw.Flush()
                 df_sw.Close()
 
@@ -1121,6 +1039,8 @@ Public Class Admin
                 Sys_tcq_com_btl = tcq_com_btl
                 Sys_Comm_Fail_Ct = comm_fail_ct
                 Sys_Form_Style = form_style
+                Sys_Need_Pass = need_pass
+                Sys_Company_Id = company_id
 
                 If MessageBox.Show("数据已经保存到文件中，是否请重启软件？", "请选择", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
                     Main.SysRestart()
@@ -1135,7 +1055,6 @@ Public Class Admin
 
 
     End Sub
-
 
 
 End Class

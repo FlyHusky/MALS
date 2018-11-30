@@ -141,6 +141,7 @@ Partial Class Main
         Me.Button31 = New System.Windows.Forms.Button
         Me.Label41 = New System.Windows.Forms.Label
         Me.ComWatchAddr = New System.Windows.Forms.ComboBox
+        Me.LaPass = New System.Windows.Forms.Label
         Me.Panel1.SuspendLayout()
         Me.Panel10.SuspendLayout()
         CType(Me.PicAllOn, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -380,7 +381,7 @@ Partial Class Main
         Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.Button9.Font = New System.Drawing.Font("新宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button9.ForeColor = System.Drawing.Color.Red
-        Me.Button9.Location = New System.Drawing.Point(-92, 13)
+        Me.Button9.Location = New System.Drawing.Point(10, 13)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(230, 34)
         Me.Button9.TabIndex = 0
@@ -392,7 +393,7 @@ Partial Class Main
         Me.Button10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.Button10.Font = New System.Drawing.Font("新宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button10.ForeColor = System.Drawing.Color.Red
-        Me.Button10.Location = New System.Drawing.Point(168, 13)
+        Me.Button10.Location = New System.Drawing.Point(270, 13)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(221, 34)
         Me.Button10.TabIndex = 0
@@ -469,6 +470,7 @@ Partial Class Main
         'GroupBox6
         '
         Me.GroupBox6.BackColor = System.Drawing.Color.SkyBlue
+        Me.GroupBox6.Controls.Add(Me.LaPass)
         Me.GroupBox6.Controls.Add(Me.LaFun)
         Me.GroupBox6.Controls.Add(Me.Button19)
         Me.GroupBox6.Controls.Add(Me.Button18)
@@ -1305,7 +1307,7 @@ Partial Class Main
         Me.PanXX.Controls.Add(Me.Button9)
         Me.PanXX.Location = New System.Drawing.Point(846, 247)
         Me.PanXX.Name = "PanXX"
-        Me.PanXX.Size = New System.Drawing.Size(306, 54)
+        Me.PanXX.Size = New System.Drawing.Size(510, 54)
         Me.PanXX.TabIndex = 63
         '
         'GroupBox8
@@ -1490,6 +1492,18 @@ Partial Class Main
         Me.ComWatchAddr.Size = New System.Drawing.Size(74, 22)
         Me.ComWatchAddr.TabIndex = 13
         '
+        'LaPass
+        '
+        Me.LaPass.AutoSize = True
+        Me.LaPass.Font = New System.Drawing.Font("新宋体", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.LaPass.ForeColor = System.Drawing.Color.Blue
+        Me.LaPass.Location = New System.Drawing.Point(138, 193)
+        Me.LaPass.Name = "LaPass"
+        Me.LaPass.Size = New System.Drawing.Size(20, 19)
+        Me.LaPass.TabIndex = 18
+        Me.LaPass.Text = "0"
+        Me.LaPass.Visible = False
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1668,5 +1682,6 @@ Partial Class Main
     Friend WithEvents Button20 As System.Windows.Forms.Button
     Friend WithEvents Button21 As System.Windows.Forms.Button
     Friend WithEvents Panel10 As System.Windows.Forms.Panel
+    Friend WithEvents LaPass As System.Windows.Forms.Label
 
 End Class

@@ -21,8 +21,6 @@
     ''' <remarks></remarks>
     Private SendTimeOverCt As Integer
 
-
-
     Private BjdBut(0 To 8) As Button
 
     Private timer1_ct As Integer
@@ -177,36 +175,8 @@
         End If
     End Sub
 
-    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PicButton1.Click
-        'If MessageBox.Show("是否确定操作？", "确定or取消", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
-        'If Bjd1Sta = 0 Then
-        '    PicLamp1.ImageLocation = ".\Pic\yellow-lamp.jpg"
-        '    Bjd1Sta = 1
-        'Else
-        '    PicLamp1.ImageLocation = ".\Pic\white-lamp.jpg"
-        '    Bjd1Sta = 0
-        'End If
-
-        'MessageBox.Show(Application.StartupPath)
-        'MessageBox.Show(My.Application.Info.DirectoryPath())
-        'End If
-
-        '定义要发送查询的信息帧数组
-        '在Vb.net中，数组下标为[0-n] 的闭区间，即数组长度是n+1.
-        'Dim chaXunData(9) As Byte
-        'CommChaxun(1, chaXunData)
-
-    End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        'If Bjd1Sta = 0 Then
-        '    PicLamp1.ImageLocation = "..\..\Pic\yellow-lamp.jpg"
-        '    Bjd1Sta = 1
-        'Else
-        '    PicLamp1.ImageLocation = "..\..\Pic\white-lamp.jpg"
-        '    Bjd1Sta = 0
-        'End If
-
 
         If Main.Form_Bjd_Need_Refresh Then
             Main.Form_Bjd_Need_Refresh = False
@@ -221,7 +191,6 @@
             End If
 
         End If
-
 
     End Sub
 
@@ -253,17 +222,9 @@
                 End If
 
             End If
-
-
-
-
-
         Next
 
-
     End Sub
-
-
 
     ' 演示如何动态的添加控件组，同时添加事件
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -287,7 +248,6 @@
         Next i
     End Sub
 
-
     '标签的click事件，点击该标签后，释放该控件资源
     Private Sub label_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim label1 As Label = CType(sender, Label) '获取当前操作的控件对象，只有这样才能对该控件进行操作
@@ -309,34 +269,23 @@
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        'Button3.Enabled = False
-        'Button3.BackColor = Color.White
+      
+        'If BjdCount = 8 Then
+        '    MessageBox.Show("当前报警器数量是" & BjdCount & "个,无需更改")
+        '    Exit Sub
+        'End If
 
-        'AddBjdToGroup1(8)
-
-
-        If BjdCount = 8 Then
-            MessageBox.Show("当前报警器数量是" & BjdCount & "个,无需更改")
-            Exit Sub
-        End If
-
-        If MessageBox.Show("当前报警器数量是" & BjdCount & "个", "请确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
-            Exit Sub
-        End If
-
-        DisposeBJD()
-
-        BjdCount = 8
-
-        Sys_node_count = 8
-
-        AddBJQ(BjdCount)
-
-        Main.SysReset()
-
-
+        'If MessageBox.Show("当前报警器数量是" & BjdCount & "个", "请确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
+        '    Exit Sub
+        'End If
+        'DisposeBJD()
+        'BjdCount = 8
+        'Sys_node_count = 8
+        'AddBJQ(BjdCount)
+        'Main.SysReset()
+        TextBox1.Text = 8
+        HaBjq()
     End Sub
-
 
 
     ''' <summary>
@@ -427,9 +376,6 @@
         Next
 
     End Function
-
-
-
 
     ''' <summary>
     ''' 向groupbox2 添加报警灯控件，数量不大于8个。
@@ -522,8 +468,6 @@
         BJDgroup2.Visible = True
 
     End Function
-
-
 
     ''' <summary>
     '''   动态往groupbox中添加报警灯
@@ -637,10 +581,6 @@
 
     End Function
 
-
-
-
-
     ''' <summary>
     '''  释放动态生成的报警灯
     ''' </summary>
@@ -669,7 +609,6 @@
         Return True
     End Function
 
-
     ''' <summary>
     '''  通道图标-双击事件-弹出详细的报警器控制面板
     ''' </summary>
@@ -694,18 +633,11 @@
             Main.BjqMoreFunction(bjqindex, MousePosition)
 
 
-            'If FindRightPosation(pos, Main.PanDan.Width, Main.PanDan.Height, Main.Width, Main.Height) Then
-            '    Main.PanDan.Location = pos
-            'End If
-
-
-
         Catch ex As Exception
             Return
         End Try
 
     End Sub
-
 
     ''' <summary>
     ''' 动态控件-报警器按钮-事件
@@ -744,40 +676,62 @@
         PcSendBjqAddr = Fesn(bjdindex).addr
         PcSendBjqindex = bjdindex
 
+
+        Dim messtr As String
+
         If Fesn(bjdindex).alarm Then
-
-            If MessageBox.Show("是否关闭此路报警", "确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
-                '关闭报警
-                PcSendAlarmOff = CommProgressEnum.PcNeedSend
-                CommAlarmOff(PcSendBjqAddr, PcSendToBjq)
-                Timer2.Interval = 100
-                Timer2.Enabled = True
-                SendTimeOverCt = 20 ' 前2秒等待，后2秒显示延时
-                PanPro.Visible = True
-                Pro1.Maximum = 20
-                Pro1.Value = 0
-                laPro.Text = "发送中....."
-                laPro.Left = (PanPro.Width - laPro.Width) \ 2
-                AllGroupboxDisable()
-            End If
-
+            messtr = "是否关闭此路报警"
         Else
-            If MessageBox.Show("是否打开此路报警", "确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
-                '关闭报警
-                '打开报警(记忆音调)
-                CommAlarmOnMem(PcSendBjqAddr, PcSendToBjq)
-                PcSendAlarmOnMem = CommProgressEnum.PcNeedSend
-                Timer2.Interval = 100
-                Timer2.Enabled = True  'time2用于查询通讯执行结果和进度显示
-                PanPro.Visible = True
-                Pro1.Maximum = 20
-                Pro1.Value = 0
-                laPro.Text = "发送中....."
-                laPro.Left = (PanPro.Width - laPro.Width) \ 2
-                AllGroupboxDisable()
-            End If
+            messtr = "是否打开此路报警"
+        End If
+
+        If MessageBox.Show(messtr, "确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
+            Exit Sub
+        End If
+
+
+        If Sys_Need_Pass Then
+            Login_event = 9
+            Login_Need_Level = User_Level_Enum.Oper
+            Login_Mes = "请输入'操作员'的密码！！！"
+            LoginForm1.Show(Me)
+        Else
+            TurnOnOffBjq()
+        End If
+
+     
+    End Sub
+
+    Public Sub TurnOnOffBjq()
+
+        If Fesn(PcSendBjqindex).alarm Then
+            '关闭报警
+            PcSendAlarmOff = CommProgressEnum.PcNeedSend
+            CommAlarmOff(PcSendBjqAddr, PcSendToBjq)
+            Timer2.Interval = 100
+            Timer2.Enabled = True
+            SendTimeOverCt = 20 ' 前2秒等待，后2秒显示延时
+            PanPro.Visible = True
+            Pro1.Maximum = 20
+            Pro1.Value = 0
+            laPro.Text = "发送中....."
+            laPro.Left = (PanPro.Width - laPro.Width) \ 2
+            AllGroupboxDisable()
+        Else
+            '打开报警(记忆音调)
+            CommAlarmOnMem(PcSendBjqAddr, PcSendToBjq)
+            PcSendAlarmOnMem = CommProgressEnum.PcNeedSend
+            Timer2.Interval = 100
+            Timer2.Enabled = True  'time2用于查询通讯执行结果和进度显示
+            PanPro.Visible = True
+            Pro1.Maximum = 20
+            Pro1.Value = 0
+            laPro.Text = "发送中....."
+            laPro.Left = (PanPro.Width - laPro.Width) \ 2
+            AllGroupboxDisable()
         End If
     End Sub
+
 
     '''' <summary>
     '''' 释放控件
@@ -880,75 +834,124 @@
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
 
-        If BjdCount = 16 Then
-            MessageBox.Show("当前报警器数量是" & BjdCount & "个,无需更改")
-            Exit Sub
-        End If
+        'If BjdCount = 16 Then
+        '    MessageBox.Show("当前报警器数量是" & BjdCount & "个,无需更改")
+        '    Exit Sub
+        'End If
 
-        If MessageBox.Show("当前报警器数量是" & BjdCount & "个,请确定是否修改数量？", "请确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
-            Exit Sub
-        End If
+        'If MessageBox.Show("当前报警器数量是" & BjdCount & "个,请确定是否修改数量？", "请确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
+        '    Exit Sub
+        'End If
 
-        DisposeBJD()
-
-        BjdCount = 16
-        Sys_node_count = 16
-
-        AddBJQ(BjdCount)
-        Main.SysReset()
-
-
+        'DisposeBJD()
+        'BjdCount = 16
+        'Sys_node_count = 16
+        'AddBJQ(BjdCount)
+        'Main.SysReset()
+        TextBox1.Text = 16
+        HaBjq()
     End Sub
+
+
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        If BjdCount = 24 Then
-            MessageBox.Show("当前报警器数量是" & BjdCount & "个,无需更改")
-            Exit Sub
-        End If
+        'If BjdCount = 24 Then
+        '    MessageBox.Show("当前报警器数量是" & BjdCount & "个,无需更改")
+        '    Exit Sub
+        'End If
 
-        If MessageBox.Show("当前报警器数量是" & BjdCount & "个,请确定是否修改？", "请确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
-            Exit Sub
-        End If
+        'If MessageBox.Show("当前报警器数量是" & BjdCount & "个,请确定是否修改？", "请确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
+        '    Exit Sub
+        'End If
 
-        DisposeBJD()
+        'DisposeBJD()
+        'BjdCount = 24
+        'Sys_node_count = 24
+        'AddBJQ(BjdCount)
+        'Main.SysReset()
 
-        BjdCount = 24
-        Sys_node_count = 24
-
-        AddBJQ(BjdCount)
-        Main.SysReset()
+        TextBox1.Text = 24
+        HaBjq()
     End Sub
+
+
+
 
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
-        If BjdCount = 32 Then
+        'If BjdCount = 32 Then
+        '    MessageBox.Show("当前报警器数量是" & BjdCount & "个,无需更改")
+        '    Exit Sub
+        'End If
+
+        'If MessageBox.Show("当前报警器数量是" & BjdCount & "个,请确定是否修改？", "请确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
+        '    Exit Sub
+        'End If
+        'DisposeBJD()
+        'BjdCount = 32
+        'Sys_node_count = 32
+        'AddBJQ(BjdCount)
+        'Main.SysReset()
+
+        TextBox1.Text = 32
+        HaBjq()
+    End Sub
+
+
+    Private Function HaBjq() As Boolean
+
+        Dim ct As Integer
+        ct = CInt(TextBox1.Text)
+
+        If ct <= 0 Or ct >= 33 Then
+            MessageBox.Show("报警器的有效数量在1-32之间！！！")
+            Exit Function
+        End If
+
+
+
+        If BjdCount = ct Then
             MessageBox.Show("当前报警器数量是" & BjdCount & "个,无需更改")
-            Exit Sub
+            Exit Function
         End If
 
         If MessageBox.Show("当前报警器数量是" & BjdCount & "个,请确定是否修改？", "请确定", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No Then
-            Exit Sub
+            Exit Function
         End If
 
+        If Sys_Need_Pass Then
+
+            Login_event = 11    '事件1
+            Login_Need_Level = User_Level_Enum.Maner
+            Login_Mes = "请输入'管理员'的密码！！！"
+            LoginForm1.Show(Me)
+
+        Else
+            HaBjq1()
+        End If
+
+
+    End Function
+
+    Public Function HaBjq1() As Boolean
+        Dim ct As Integer
+        ct = CInt(TextBox1.Text)
         DisposeBJD()
-
-        BjdCount = 32
-        Sys_node_count = 32
-
+        BjdCount = ct
+        Sys_node_count = ct
         AddBJQ(BjdCount)
         Main.SysReset()
-    End Sub
+    End Function
 
-    ''' <summary>
-    ''' 使能所有的报警器 groupbox
-    ''' </summary>
-    ''' <remarks></remarks>
+
+
+
+
     Private Sub AllGroupboxDisable()
         BJDgroup1.Enabled = False
         BJDgroup2.Enabled = False
         BJDgroup3.Enabled = False
         BJDgroup4.Enabled = False
     End Sub
-
 
     ''' <summary>
     ''' 使能所有的报警器 groupbox
@@ -961,41 +964,41 @@
         BJDgroup4.Enabled = True
     End Sub
 
-
-
     Private Sub Panel1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Panel1.Click
         If Main.PanDan.Visible Then
             Main.PanDan.Visible = False
+            Main.LaPass.Text = 0
         End If
     End Sub
 
     Private Sub BJDgroup1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BJDgroup1.Click
         If Main.PanDan.Visible Then
             Main.PanDan.Visible = False
+            Main.LaPass.Text = 0
         End If
     End Sub
-
-
 
     Private Sub BJDgroup2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BJDgroup2.Click
         If Main.PanDan.Visible Then
             Main.PanDan.Visible = False
+            Main.LaPass.Text = 0
         End If
     End Sub
-
-
-
 
     Private Sub BJDgroup3_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BJDgroup3.Click
         If Main.PanDan.Visible Then
             Main.PanDan.Visible = False
+            Main.LaPass.Text = 0
         End If
     End Sub
-
 
     Private Sub BJDgroup4_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BJDgroup4.Click
         If Main.PanDan.Visible Then
             Main.PanDan.Visible = False
+            Main.LaPass.Text = 0
         End If
     End Sub
+
+
+
 End Class

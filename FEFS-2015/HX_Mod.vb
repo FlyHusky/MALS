@@ -77,63 +77,28 @@ Module HX_Mod
     ''' <remarks></remarks>
     Public Sys_Company_Id As Byte
 
-    '管理员的超级密码-可提供给用户。
-    Public Const SUPER_PASSWORD_GLY As String = "119120911"
+
+    '------------------------------有关用户权限密码验证的变量定义------------------------------
+
+    '管理员的超级密码-当用户丢失管理员密码后，可提供给用户。
+    Public Const SUPER_PASSWORD_GLY As String = "119120911110"
 
     '系统集成调试人员的密码-不可提供给用户。
-    Public Const SUPER_PASSWORD_ As String = "HZTG20182019"
-
-
-    ' 系统参数预留2
-    'Public Sys_Retain_Data2 As Byte
-
-    '---------------------------系统基础参数-end-------------
-
-
-
-    Public Sys_power_com_id As Byte    '工控电源通讯com 口编号
-    Public Sys_comm_fail_ct1 As Byte
-    Public Sys_dis_pages As Integer        '分页显示的页面数量
-    Public Sys_page_dis_count As Byte  '每个界面显示多少个探测器数量。
-    Public Sys_user_name As String
-    Public Sys_Fanye As Byte           '系统翻页时间
-    Public Sys_start_date As String    '系统开机的那天时间，用于做系统日志。。。
-    Public Sys_Log_Path As String      '系统当天的日志路径
-    Public net_map_array As ArrayList
-    Public tcq_map_array As ArrayList
-
-    ''软件自己重启，无须复位终端探测器。。。主要用在系统参数修改后的软件重启。。。。
-    Public Sys_Restart As Boolean
-
-
-    '用户登录输入密码时的 事件记录
-    Public Login_event As Byte
-
-    '用户登录输入密码时的 用户权限要求
-    Public Login_Level As Byte
-
-    Public Sys_Res_ct As Byte   '记录案件
+    Public Const SUPER_PASSWORD_ENGER As String = "HZTG20182019"
 
     ''' <summary>
-    ''' 标志自检模块暂时控制声光器件
+    ''' 在MALS中-只有2个账号和对应的密码。
+    ''' 这个是操作员的密码，从文件中读取过来的。
     ''' </summary>
     ''' <remarks></remarks>
-    Public SelfCheck_Use_LampAndSpeaker As Boolean
-
+    Public Sys_Oper_Pass As String
 
     ''' <summary>
-    ''' 自检时和探测器实时通讯
+    ''' 在MALS中-只有2个账号和对应的密码。
+    ''' 这个是管理员的密码，从文件中读取过来的。
     ''' </summary>
     ''' <remarks></remarks>
-    Public SelfCheck_Use_Tcq_Comm As Boolean
-
-    Public SelfCheck_Use_Tcq_Comm_OK As Boolean
-
-    Public Rest_Use_Tcq_Comm As Boolean
-    Public Rest_Use_Tcq_Comm_OK As Boolean
-
-    Public Mute_Use_Tcq_Comm As Boolean
-    Public Mute_Use_Tcq_Comm_OK As Boolean
+    Public Sys_Maner_Pass As String
 
     ''' <summary>
     ''' 用户权限-枚举
@@ -158,14 +123,23 @@ Module HX_Mod
         ''' <remarks></remarks>
         Maner = 2
 
+
+        ''' <summary>
+        ''' 使用超级账号登录的管理员。
+        ''' </summary>
+        ''' <remarks></remarks>
+        ManerSuper = 3
+
         ''' <summary>
         '''  调试工程师
         ''' </summary>
         ''' <remarks></remarks>
         Enger = 4
 
-    End Enum
 
+
+
+    End Enum
 
     ''' <summary>
     ''' 0=普用户，
@@ -175,6 +149,88 @@ Module HX_Mod
     ''' </summary>
     ''' <remarks></remarks>
     Public Sys_user_level As User_Level_Enum
+
+    ''' <summary>
+    '''  系统用户对象数组-在MALS中暂时不用。
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Fefs_Users() As FEFS_USER
+
+    ''' <summary>
+    ''' 用户登录时提醒信息，会现在在LoginForm窗体
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Login_Mes As String
+
+    ''' <summary>
+    ''' 需要用户以何种身份登录
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Login_Need_Level As User_Level_Enum
+
+    ''' <summary>
+    '''  用户登录输入密码时的 事件记录
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Login_event As Byte
+
+    ''' <summary>
+    ''' 用户登录输入密码时的 用户权限要求
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Login_Level As Byte
+    '--------------------------------------------------------------------------------------------
+
+
+
+
+    ' 系统参数预留2
+    'Public Sys_Retain_Data2 As Byte
+
+    '---------------------------系统基础参数-end-------------
+
+
+
+    Public Sys_power_com_id As Byte    '工控电源通讯com 口编号
+    Public Sys_comm_fail_ct1 As Byte
+    Public Sys_dis_pages As Integer        '分页显示的页面数量
+    Public Sys_page_dis_count As Byte  '每个界面显示多少个探测器数量。
+    Public Sys_user_name As String
+    Public Sys_Fanye As Byte           '系统翻页时间
+    Public Sys_start_date As String    '系统开机的那天时间，用于做系统日志。。。
+    Public Sys_Log_Path As String      '系统当天的日志路径
+    Public net_map_array As ArrayList
+    Public tcq_map_array As ArrayList
+
+    ''软件自己重启，无须复位终端探测器。。。主要用在系统参数修改后的软件重启。。。。
+    Public Sys_Restart As Boolean
+
+
+
+    Public Sys_Res_ct As Byte   '记录案件
+
+    ''' <summary>
+    ''' 标志自检模块暂时控制声光器件
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public SelfCheck_Use_LampAndSpeaker As Boolean
+
+
+    ''' <summary>
+    ''' 自检时和探测器实时通讯
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public SelfCheck_Use_Tcq_Comm As Boolean
+
+    Public SelfCheck_Use_Tcq_Comm_OK As Boolean
+
+    Public Rest_Use_Tcq_Comm As Boolean
+    Public Rest_Use_Tcq_Comm_OK As Boolean
+
+    Public Mute_Use_Tcq_Comm As Boolean
+    Public Mute_Use_Tcq_Comm_OK As Boolean
+
+
 
 
     ''' <summary>
@@ -318,19 +374,6 @@ Module HX_Mod
     ''' </summary>
     ''' <remarks></remarks>
     Public Fesn() As Tcq
-
-    Public Fefs_Users() As FEFS_USER
-    ''' <summary>
-    ''' 用户登录时提醒信息，会现在在LoginForm窗体
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public Login_Mes As String
-
-    ''' <summary>
-    ''' 需要用户以何种身份登录
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public Login_Need_Level As String
 
 
 
@@ -499,7 +542,7 @@ Module HX_Mod
         Comm_Debug_Id = 0
 
 
-        '1-创建系统日志文件：以当前日期+时间做文件名。
+        '1-创建系统日志文件。以当前日期+时间做文件名。--------------------------------------------------
         Dim hs As String
         Sys_start_date = Format(Now, "yyyy-MM-dd")       '获取当前日期
         hs = "-" & Now.Hour.ToString & "-" & Now.Minute.ToString    '获取当前的时间-1
@@ -518,14 +561,14 @@ Module HX_Mod
             file_log_sta = False
             'MessageBox.Show("系统日志文件，创建失败！")
         End Try
+        '---------------------------------------------------------------------------------------------------------
 
 
-        '2. 报警日志文件存在安装目录下 log\alarm-log\时间.txt
-        '时间例子： 2018-10-31-10-01  标识 2018年10月31号，10点1分。
-        '报警日志文件-按每次启动来保存信息。
+        '2-创建报警日志。-----------------------------------------------------------------------------------------
+        '----------------文件存在安装目录下(log \ alarm - log \ 时间.txt)
+        '----------------时间例子： 2018-10-31-10-01  标识 2018年10月31号，10点1分。
+        '----------------报警日志文件-按每次启动来保存信息。
         alarm_file_path = My.Application.Info.DirectoryPath & "\log\alarm-log\" & Sys_start_date & hs & ".txt"
-
-
         Try
             If File.Exists(file_path) <> True Then
                 alarm_log = File.CreateText(alarm_file_path)    '创建写入 文件对象 utf-8 编码
@@ -543,37 +586,42 @@ Module HX_Mod
         SaveAlarmLog("############ " & Now.ToString & " 系统启动 ############")
 
 
-        'MALS 直接从 文件中加载信息
+        '3:加载系统基础信息。MALS直接从文件中加载。----------------------------------------------------------------
         If Sys_Main_Info_file_Init() Then
             SaveSysLog("#从数据文件sys_main_info加载-系统基础信息完成")
         Else
 
-            SaveSysLog("#从数据文件sys_main_info加载-系统基础信息出错，将直接使用固化参数1个节点，认证模式")
+            SaveSysLog("#从数据文件sys_main_info加载-系统基础信息出错，将直接使用固化参数")
             Sys_Base_Default_Info_Init()
         End If
-
-        ' End If
-        '
-
-        file_log.Flush()
+        '----------------------------------------------------------------------------------------------------------
 
 
-        '2:加载数据库“探测器信息表”
-        'If Sys_Tcq_info_Init() Then
-        '     file_log.WriteLine("#加载数据库中-探测器信息表-完成")
-        'Else
-        '  file_log.WriteLine("#加载数据库中探测器出错，将从备份文件加载探测器信息！")
-
-        'MALS 直接从文件中加载信息
+        '4: 加载报警器信息。MALS 直接从文件中加载。----------------------------------------------------------------
         If Sys_Tcq_Info_File_Init() Then
             SaveSysLog("#从备份文件加载探测器信息，完成！！")
         Else
-            SaveSysLog("#从备份文件加载探测器信息出错，将直接使用软件固化参数，16个探测器，2个温度，500,100,100")
+            SaveSysLog("#从备份文件加载报警器信息出错，将直接使用软件固化参数")
             Set_Tcq_Default_Info_Init()
         End If
+        '----------------------------------------------------------------------------------------------------------
 
-        Sys_user_level = 0
+        '5: 加载用户密码。MALS直接从文件中加载。-------------------------------------------------------------------
+        If Sys_User_Init_File() Then
+            SaveSysLog("#从备份文件加载用户信息，完成！！")
+        Else
+            SaveSysLog("#从备份文件加载用户信息出错，将直接使用软件固化参数")
+            Sys_Oper_Pass = "123456"
+            Sys_Maner_Pass = "456789"
+        End If
+
+
+
+        '---------------------------------------------------------------------------------------------------------
+        '初始化为普通权限
+        Sys_user_level = User_Level_Enum.Common
         Sys_user_name = ""
+
 
         Sys_Restart = False
 
@@ -951,13 +999,12 @@ Module HX_Mod
 
     End Function
 
+
+
+
     Public Function Sys_User_Init_File() As Boolean
-
-
         Try
             Dim data_file_path As String
-            ReDim Fefs_Users(1)
-
             '系统数据备份文件sys_main_info，存放位置在 安装路径+ \backup_data 文件夹内。
             data_file_path = My.Application.Info.DirectoryPath & "\backup_data\GLY_PASS"
 
@@ -969,11 +1016,9 @@ Module HX_Mod
             End If
 
             Dim sr As StreamReader = File.OpenText(data_file_path)
-            Fefs_Users(0) = New FEFS_USER
-            Fefs_Users(0).user_name = "管理员"
-            Fefs_Users(0).user_password = sr.ReadLine
-            Fefs_Users(0).user_level = "管理员"
+            Sys_Maner_Pass = sr.ReadLine
             sr.Close()
+
 
             data_file_path = My.Application.Info.DirectoryPath & "\backup_data\CZY_PASS"
             If File.Exists(data_file_path) <> True Then
@@ -984,11 +1029,7 @@ Module HX_Mod
             End If
 
             Dim sr1 As StreamReader = File.OpenText(data_file_path)
-
-            Fefs_Users(1) = New FEFS_USER
-            Fefs_Users(1).user_name = "操作员"
-            Fefs_Users(1).user_password = sr1.ReadLine
-            Fefs_Users(1).user_level = "操作员"
+            Sys_Oper_Pass = sr1.ReadLine
             sr1.Close()
 
             Return True
@@ -1790,7 +1831,9 @@ Module HX_Mod
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Function Save_GLY_Pass_Into_File(ByVal pass As String) As Boolean
+
         Dim data_file_path As String
+
         Try
             '系统数据备份文件sys_main_info，存放位置在 安装路径+ \backup_data 文件夹内。
             data_file_path = My.Application.Info.DirectoryPath & "\backup_data\GLY_PASS"
@@ -1801,7 +1844,9 @@ Module HX_Mod
         Catch ex As Exception
             Return False
         End Try
+
         Return True
+
     End Function
 
 

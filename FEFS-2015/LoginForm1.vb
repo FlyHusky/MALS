@@ -10,7 +10,6 @@
 
         Dim text_name As String
         Dim text_password As String
-        Dim temp_user As FEFS_USER
 
         text_name = Trim(ComboBox1.Text)
         text_password = Trim(PasswordTextBox.Text)
@@ -26,48 +25,42 @@
         End If
 
         '判断是否为超级用户
-        If (text_name = "管理员") And (text_password = "63206455") Then
-            Sys_user_name = "fzdq"
-            Sys_user_level = 4
-            Main.Enabled = True
-            Sys_Lock = False
-            Login_Work()
-            Me.Close()
-            Exit Sub
-        End If
+        'If (text_name = "管理员") And (text_password = "63206455") Then
+        '    Sys_user_name = "fzdq"
+        '    Sys_user_level = 4
+        '    Main.Enabled = True
+        '    Sys_Lock = False
+        '    Login_Work()
+        '    Me.Close()
+        '    Exit Sub
+        'End If
 
-
-
-        temp_user = New FEFS_USER
-        temp_user.user_name = text_name
-        temp_user.user_password = text_password
-        temp_user.user_level = ""
-
-        Dim lfi As Integer
-        Dim name_ck As Boolean
         Dim pass_ck As Boolean
 
-        name_ck = False
-        pass_ck = False
+        If text_name = "管理员" Then
+            If text_password = Sys_Maner_Pass Then
+                pass_ck = True
+                Sys_user_level = User_Level_Enum.Maner
 
-        '遍历用户对象
-        For lfi = 0 To Fefs_Users.Length - 1
-            If temp_user.user_name = Fefs_Users(lfi).user_name Then  '判断用户名
-                name_ck = True
-                If temp_user.user_password = Fefs_Users(lfi).user_password Then
-                    temp_user.user_level = Fefs_Users(lfi).user_level
-                    pass_ck = True
-                    Exit For
-                End If
+            ElseIf text_password = SUPER_PASSWORD_GLY Then
+                pass_ck = True
+                Sys_user_level = User_Level_Enum.ManerSuper
+            ElseIf text_password = SUPER_PASSWORD_ENGER Then
+                pass_ck = True
+                Sys_user_level = User_Level_Enum.Enger
+            Else
+                pass_ck = False
+                Sys_user_level = User_Level_Enum.Common
             End If
-        Next
-
-
-        If name_ck = False Then
-            Label1.Text = "用户名错误！！！"
-            Label1.Visible = True
-            Exit Sub
+        Else
+            If text_password = Sys_Oper_Pass Then
+                pass_ck = True
+                Sys_user_level = User_Level_Enum.Oper
+            Else
+                pass_ck = False
+            End If
         End If
+
 
         If pass_ck = False Then
             Label1.Text = "密码错误！！！"
@@ -76,33 +69,28 @@
         End If
 
 
-        '管理员的  Sys_user_level = 2
-        '操作员的  Sys_user_level =1
-        '超级用户的  Sys_user_level = 3
+        If Login_Need_Level = User_Level_Enum.Maner And text_name <> "管理员" Then
+            Label1.Text = "请用更高一级得'管理员'身份账号登录！！！"
+            ComboBox1.SelectedIndex = 1
+            Exit Sub
+        End If
 
-        '判断用户权限是否够，管理员的 Sys_user_level=2
-
-        If temp_user.user_level = "管理员" Then
+        If text_name = "管理员" Then
             Main.Enabled = True
-            Sys_user_level = 2
             Sys_user_name = text_name
             Sys_Lock = False
             Login_Work()
             Me.Close()
-        Else  '登录的密码为 操作员 权限
-
-            '但是需要的权限为管理员，
-            If Login_Need_Level = "管理员" Then
-                Label1.Text = "请用更高一级得'管理员'身份账号登录！！！"
-            Else
-                Main.Enabled = True
-                Sys_user_level = 1
-                Sys_user_name = text_name
-                Sys_Lock = False
-                Login_Work()
-                Me.Close()
-            End If
         End If
+
+        If text_name = "操作员" Then
+            Main.Enabled = True
+            Sys_user_name = text_name
+            Sys_Lock = False
+            Login_Work()
+            Me.Close()
+        End If
+
 
 
     End Sub
@@ -133,20 +121,19 @@
         Label2.Text = Login_Mes
         Label2.Visible = True
 
-        Dim lfi As Integer
-        For lfi = 0 To Fefs_Users.Length - 1
-            ComboBox1.Items.Add(Fefs_Users(lfi).user_name)
-            If Login_Need_Level = Fefs_Users(lfi).user_level Then
-                ComboBox1.SelectedIndex = lfi
-            End If
-        Next
+        If Login_Need_Level = User_Level_Enum.Oper Then
+            ComboBox1.SelectedIndex = 0
+        Else
+            ComboBox1.SelectedIndex = 1
+        End If
 
         Label1.Visible = False
-        Me.Top = 850
-        Me.Left = 350
 
-        ' Me.Top = (Main.Height - Me.Height) \ 2
-        ' Me.Left = (Main.Width - Me.Width) \ 2
+        ' Me.Top = 850
+        ' Me.Left = 350
+
+        Me.Top = (Main.Height - Me.Height) \ 2
+        Me.Left = (Main.Width - Me.Width) \ 2
 
         Main.Enabled = False
 
@@ -180,6 +167,19 @@
     End Sub
 
     '用户输入正确密码后的事件响应。。。。。。
+    ''' <summary>
+    ''' Login_event 数值定义
+    ''' 1：进入参数设置
+    ''' 2：参数设置窗体里面用的
+    ''' 3：自检用-MALS不用
+    ''' 4：系统复位
+    ''' 5：单机调试
+    ''' 6：退出系统
+    ''' 7：报警全开
+    ''' 9: 图形显示窗体-打开或关闭报警。
+    ''' 10：其它通讯指令发送权限
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Sub Login_Work()
         If Login_event = 1 Then
             Main.But_Pra_Set_Click_2()
@@ -191,19 +191,22 @@
             Main.But_Sys_Reset_Click1()
 
         ElseIf Login_event = 5 Then
-            Main.But_Sys_Info_Click1()
+            Main.But_Sys_SelfCheck_Click1()
 
         ElseIf Login_event = 6 Then
-            Main.Close_PC()
-
-            'form1 界面复位单个探测器。
+            Main.Button4_Click1()
         ElseIf Login_event = 7 Then
-            Form1.Button3_Click()
+            Main.Button21_Click1()
 
         ElseIf Login_event = 8 Then
-            Main.Timer2.Enabled = False
-            Sys_Close()
-            Application.Restart()
+            Main.Button20_Click1()
+        ElseIf Login_event = 9 Then
+            Form_Bjd.TurnOnOffBjq()
+        ElseIf Login_event = 10 Then
+            Main.LaPass.Text = "1"
+
+        ElseIf Login_event = 11 Then
+            Form_Bjd.HaBjq1()
         End If
 
 
